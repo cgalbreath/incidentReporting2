@@ -1,0 +1,29 @@
+<div class='col-md-10 col-md-offset-1'>
+  <h2>Incidents</h2>
+  <%= link_to "New", new_incident_path %>
+  <div class='panel panel-default'>
+    <div class='panel-body'>
+      <table class='table table-striped'>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Reporter</th>
+            <th>Witness</th>
+            <th>Location</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @incidents.each do |incident| %>
+            <tr>
+              <td><%= link_to incident.id, incident_path(incident.id) %></td>
+              <td><%= incident.reporter %></td>
+              <td><%= incident.witness %></td>
+              <td><%= incident.location %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</div>

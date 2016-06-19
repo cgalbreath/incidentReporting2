@@ -7,15 +7,7 @@ Rails.application.routes.draw do
 
   get 'welcome/index'
 
-  get 'pages/home'
-
-  get 'pages/about'
-
-  get 'pages/contact'
-
-  get 'incident/index'
-
-  get 'incident/new'
+  resources :incidents
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
