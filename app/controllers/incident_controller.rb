@@ -16,5 +16,6 @@ class IncidentController < ApplicationController
   		       	  :left => "Left",
   		       	  :right => "Right"
   		       }
+        end
   end
 end
