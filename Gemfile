@@ -9,8 +9,8 @@ gem 'sqlite3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 
-gem 'bootstrap-sass'
-gem 'autoprefixer-rails'
+#gem 'bootstrap-sass'
+#gem 'autoprefixer-rails'
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
 
