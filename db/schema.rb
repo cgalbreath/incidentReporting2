@@ -13,12 +13,12 @@
 
 ActiveRecord::Schema.define(version: 0) do
 
-  create_table "incidents", force: true do |t|
-    t.string   "reporter"
-    t.string   "witness"
-    t.string   "location"
-    t.string   "address"
-    t.string   "description"
+  create_table "incidents", force: :cascade do |t|
+    t.string "reporter"
+    t.string "witness"
+    t.string "location"
+    t.string "address"
+    t.string "description"
   end
 
 end
