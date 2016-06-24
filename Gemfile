@@ -13,6 +13,7 @@ gem 'sass-rails', '~> 5.0'
 #gem 'autoprefixer-rails'
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
+gem 'lazy_high_charts'
 
 #gem 'slim', '~> 3.0', '>= 3.0.7'
 

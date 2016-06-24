@@ -11,4 +11,7 @@
 // about supported directives.
 //
 //= require turbolinks
+//= require highcharts/highstock
+//= require highcharts/highcharts                                                           
+//= require highcharts/highcharts-more  
 //= require_tree .
