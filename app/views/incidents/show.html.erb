@@ -9,6 +9,18 @@
       <div class='panel-body'>
         <table class='table table-hover no-border-top'>
           <tr>
+            <td>Incident Type:</td>
+            <td><%= @incident.incident_type %></td>
+          </tr>
+          <tr>
+            <td>Date of Incident:</td>
+            <td><%= @incident.date_of_incident %></td>
+          </tr>
+          <tr>
+            <td>Time of Incident:</td>
+            <td><%= @incident.time_of_incident %></td>
+          </tr>
+          <tr>
             <td>Reporter:</td>
             <td><%= @incident.reporter %></td>
           </tr>
@@ -27,6 +39,26 @@
           <tr>
             <td>Description:</td>
             <td><%= @incident.description %></td>
+          </tr>
+          <tr>
+            <td>Area:</td>
+            <td><%= @incident.loc_area %></td>
+          </tr>
+          <tr>
+            <td>First Aid:</td>
+            <td><%= @incident.first_aid %></td>
+          </tr>
+          <tr>
+            <td>Parent/Guardian notified:</td>
+            <td><%= @incident.guardian_notified %></td>
+          </tr>
+          <tr>
+            <td>911 Called:</td>
+            <td><%= @incident.emergency_notified %></td>
+          </tr>
+          <tr>
+            <td>Picked up:</td>
+            <td><%= @incident.parent_pickup %></td>
           </tr>
         </table>
       </div>

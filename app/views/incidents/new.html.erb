@@ -30,6 +30,21 @@
 
 <%= form_for @incident do |f| %>
   <div class="form-group">
+  <%= f.label :incident_type, :class=>"control-label" %>
+  <%= f.text_field :incident_type, label: "Incident Type", :class => "form-control" %>
+  </div>
+
+  <div class="form-group">
+  <%= f.label :date_of_incident, :class=>"control-label" %>
+  <%= f.text_field :date_of_incident, label: "Date of Incident", :class => "form-control" %>
+  </div>
+
+  <div class="form-group">
+  <%= f.label :time_of_incident, :class=>"control-label" %>
+  <%= f.text_field :time_of_incident, label: "Time of Incident", :class => "form-control" %>
+  </div>
+
+  <div class="form-group">
   <%= f.label :reporter, :class=>"control-label" %>
   <%= f.text_field :reporter, label: "Reporter", :class => "form-control" %>
   </div>
@@ -52,6 +67,31 @@
   <div class="form-group">
   <%= f.label :description, :class=>"control-label" %>
   <%= f.text_field :description, label: "Description", :class => "form-control" %>
+  </div>
+
+  <div class="form-group">
+  <%= f.label :loc_area, :class=>"control-label" %>
+  <%= f.text_field :loc_area, label: "Which Area?", :class => "form-control" %>
+  </div>
+
+  <div class="form-group">
+  <%= f.label :first_aid, :class=>"control-label" %>
+  <%= f.text_field :first_aid, label: "First Aid Applied", :class => "form-control" %>
+  </div>
+
+  <div class="form-group">
+  <%= f.label :guardian_notified, :class=>"control-label" %>
+  <%= f.text_field :guardian_notified, label: "Parent or Guardian Notified?", :class => "form-control" %>
+  </div>
+
+  <div class="form-group">
+  <%= f.label :emergency_notified, :class=>"control-label" %>
+  <%= f.text_field :emergency_notified, label: "Was 911 called?", :class => "form-control" %>
+  </div>
+
+  <div class="form-group">
+  <%= f.label :parent_pickup, :class=>"control-label" %>
+  <%= f.text_field :parent_pickup, label: "Picked up by Parent or Guardian?", :class => "form-control" %>
   </div>
   
   <div class="form-actions">

@@ -31,6 +31,6 @@ class IncidentsController < ApplicationController
 
 private
   def incident_params
-    params.require(:incident).permit(:reporter, :witness, :location, :address, :description)
+    params.require(:incident).permit(:incident_type, :date_of_incident, :time_of_incident, :reporter, :witness, :location, :address, :description, :loc_area, :first_aid, :guardian_notified, :emergency_notified, :parent_pickup)
   end
 end

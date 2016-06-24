@@ -13,12 +13,27 @@
 
 ActiveRecord::Schema.define(version: 0) do
 
-  create_table "incidents", force: true do |t|
-    t.string   "reporter"
-    t.string   "witness"
-    t.string   "location"
-    t.string   "address"
-    t.string   "description"
+  create_table "incidents", force: :cascade do |t|
+    t.string "incident_type"
+    t.string "date_of_incident"
+    t.string "time_of_incident"
+    t.string "reporter"
+    t.string "witness"
+    t.string "location"
+    t.string "address"
+    t.string "description"
+    t.string "loc_area"
+    t.string "first_aid"
+    t.string "guardian_notified"
+    t.string "emergency_notified"
+    t.string "parent_pickup"
+  end
+
+  create_table "persons", force: :cascade do |t|
+    t.string "name"
+    t.string "age"
+    t.string "sex"
+    t.string "address"
   end
 
 end
