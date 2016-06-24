@@ -14,18 +14,14 @@
 ActiveRecord::Schema.define(version: 0) do
 
   create_table "incidents", force: :cascade do |t|
-<<<<<<< HEAD
     t.string "incident_type"
     t.string "date_of_incident"
     t.string "time_of_incident"
-=======
->>>>>>> 25f351413a629d6d69422c2562ef248b6723cc84
     t.string "reporter"
     t.string "witness"
     t.string "location"
     t.string "address"
     t.string "description"
-<<<<<<< HEAD
     t.string "loc_area"
     t.string "first_aid"
     t.string "guardian_notified"
@@ -38,8 +34,6 @@ ActiveRecord::Schema.define(version: 0) do
     t.string "age"
     t.string "sex"
     t.string "address"
-=======
->>>>>>> 25f351413a629d6d69422c2562ef248b6723cc84
   end
 
 end
