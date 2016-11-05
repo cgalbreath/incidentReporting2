@@ -1,0 +1,27 @@
+<div class='col-md-10 col-md-offset-1'>
+  <h2>Incient Types</h2>
+  <%= link_to "New Severity Level", new_severity_level_path, remote: true, class: "btn btn-primary" %>
+  <hr>
+  <div class='panel panel-default'>
+    <div class='panel-body'>
+      <div class="table-responsive">
+        <table class="table table-hover table-striped table-bordered">
+          <thead>
+            <tr>
+              <th>Type</th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="severity_levels">
+          <div class = "sort_paginate_ajax"><%= render @severity_levels %></div>
+          </tbody>
+        </table>
+        <%= will_paginate @severity_levels, renderer: BootstrapPagination::Rails %>
+      </div>
+
+      <%= render 'dialog' %>
+
+    </div>
+  </div>
+</div>

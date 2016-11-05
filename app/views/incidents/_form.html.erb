@@ -1,0 +1,120 @@
+
+<%= nested_form_for(@incident, remote: true, :html => { :role => "form" }) do |f| %>
+  <div id="error_explanation" class="bg-danger text-danger">
+
+  </div>
+   
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="form-group">
+        <%= f.label :date_reported, "Date and Time Reported", :class => "control-label" %>
+        <div class='input-group date' id='date_reported'>
+          <%= f.text_field :date_reported, :value => @sysDateTime, :class => "form-control", "data-provide" => 'datepicker', :readonly => true %>
+          <span class="input-group-addon">
+            <span class="glyphicon glyphicon-calendar"></span>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="form-group">
+        <%= f.label :date_of_incident, "Date and Time of Incident", :class => "control-label" %>
+        <div class='input-group date' id='date_of_incident'>
+          <%= f.text_field :date_of_incident, :class => "form-control", "data-provide" => 'datepicker' %>
+          <span class="input-group-addon">
+            <span class="glyphicon glyphicon-calendar"></span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="form-group">
+        <%= f.label :reporter, :class => "control-label" %>
+        <%= f.text_field :reporter, :class => "form-control" %>
+      </div>  
+    </div>
+
+    <div class="col-sm-6">
+      <div class="form-group">
+        <%= f.label :witness, :class => "control-label" %>
+        <%= f.text_field :witness, :class => "form-control" %>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="form-group">
+        <%= f.label :location_id, :class => "control-label" %>
+        <%= f.select :location_id, Location.all.collect {|p| [ p.name, p.id ] }, { include_blank: true }, {:class => 'form-control'} %>
+      </div>
+    </div>
+    <div id="loc-fac">
+      <div class="col-sm-6">
+        <div class="form-group">
+          <%= f.label :facility_id, :class => "control-label" %>
+          <%= f.select :facility_id, Facility.all.collect {|p| [ p.name, p.id ] }, { include_blank: true }, {:class => 'form-control'} %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div id="loc-area">
+      <div class="col-sm-6">
+        <div class="form-group">
+          <%= f.label :area_id, :class => "control-label" %>
+          <%= f.select :area_id, Area.find(Facility.find(@incident.facility_id).areas).collect {|p| [ p.name, p.id ] }, { include_blank: true }, {:class => 'form-control'} %>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="form-group">
+          <%= f.label :program_id, :class => "control-label" %>
+          <%= f.select :program_id, Program.find(Facility.find(@incident.facility_id).programs).collect {|p| [ p.name, p.id ] }, { include_blank: true }, {:class => 'form-control'} %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div id="loc-address">
+      <div class="col-md-12">
+        <div class="form-group">
+          <%= f.label :physical_address, :class => "control-label" %>
+          <%= f.text_field :physical_address, :class => "form-control" %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4">
+      <div class="form-group">
+        <%= f.label :severity_level_id, :class => "control-label" %>
+        <%= f.select :severity_level_id, SeverityLevel.all.collect {|p| [ p.name, p.id ] }, { include_blank: true }, {:class => 'form-control'} %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="form-group">
+        <%= f.label :description, "General Overview of Incident", :class => "control-label" %>
+        <%= f.text_area :description, :class => "form-control", :rows => "5" %>
+      </div>
+    </div>
+  </div>
+
+  <%= f.fields_for :incident_details %>
+  <%= f.link_to_add "Add detail", :incident_details %>
+
+  <div class="row">
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <%= f.submit  @incident.new_record? ? "Create Incident" : "Update Incident", :class => "btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+<% end %>

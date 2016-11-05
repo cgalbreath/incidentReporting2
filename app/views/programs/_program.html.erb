@@ -1,0 +1,9 @@
+<tr id="program_<%= program.id %>">
+    <td><%= program.name %></td>
+    <td>
+	    <%= link_to 'Edit', edit_program_path(program), remote: true, :class => 'btn btn-sm btn-primary' %>
+	</td>
+    <td>
+	    <%= link_to 'Delete', program, remote: true, :method => :delete, data: {confirm: "Delete Program: #{program.id}"}, :class => 'btn btn-sm btn-primary' %>
+	</td>
+</tr>

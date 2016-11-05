@@ -1,0 +1,38 @@
+<div id="<%= form_tag_id(f.object_name, :div_out) %>">
+	 
+</div>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+	    $('#<%= form_tag_id(f.object_name, :incident_type_id) %>').change(function() {
+	      if ( this.value == 1)
+	      {
+	        $("div#<%= form_tag_id(f.object_name, :div_out) %>").html("<%= j render 'partials/injury', f: f %>");
+	      }
+	      else if ( this.value == 2)
+	      {
+	        $("div#<%= form_tag_id(f.object_name, :div_out) %>").html("<%= j render 'partials/theft', f: f %>");
+	      }
+	      else if ( this.value == 3)
+	      {
+	        $("div#<%= form_tag_id(f.object_name, :div_out) %>").html("<%= j render 'partials/veh_accident', f: f %>");
+	      }
+	      else if ( this.value == 4)
+	      {
+	        $("div#<%= form_tag_id(f.object_name, :div_out) %>").html("<%= j render 'partials/prop_damage', f: f %>");
+	      }
+	      else if ( this.value == 5)
+	      {
+	        $("div#<%= form_tag_id(f.object_name, :div_out) %>").html("<%= j render 'partials/behavioural', f: f %>");
+	      }
+	      else if ( this.value == 6)
+	      {
+	        $("div#<%= form_tag_id(f.object_name, :div_out) %>").html("<%= j render 'partials/abuse', f: f %>");
+	      }
+	      else
+	      {
+	      	$("div#<%= form_tag_id(f.object_name, :div_out) %>").html("");
+	      }
+	    }).trigger('change');;
+	});
+</script>

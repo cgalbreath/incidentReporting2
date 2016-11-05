@@ -1,0 +1,226 @@
+<div class="row">
+	<div class="col-sm-12">
+		<div class="form-group">
+			<%= f.label :description, "What occured?", :class => "control-label" %>
+			<%= f.text_area :description, :class => "form-control", :rows => "3" %>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-sm-1">
+	</div>
+	<div class="col-sm-1">
+			<%= f.label :cps_notified, :class => "control-label" %>
+	        <%= f.check_box :cps_notified, :class => "form-control" %>
+	</div>
+	<div class="col-sm-1">
+	</div>
+	<div class="col-sm-1">
+	</div>
+	<div class="col-sm-1">
+	</div>
+	<div class="col-sm-1">
+		<div class="form-group">
+			<%= f.label :emergency_notified, "Police Report filed?",:class => "control-label" %>
+	        <%= f.check_box :emergency_notified, :class => "form-control" %>
+		</div>
+	</div>
+	<div class="col-sm-1">
+	</div>
+	<div class="col-sm-1">
+	</div>
+	<div class="col-sm-1">
+	</div>
+	<div class="col-sm-1">
+			<%= f.label :guardian_notified, :class => "control-label" %>
+	        <%= f.check_box :guardian_notified, :class => "form-control" %>
+	</div>
+</div>
+
+<div id="<%= form_tag_id(f.object_name, :cps_info) %>">
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="form-group">
+				<%= f.label :cps_detail, :class => "control-label" %>
+		        <%= f.text_area :cps_detail, :class => "form-control", :rows => "3" %>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="<%= form_tag_id(f.object_name, :emergency_info) %>">
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="form-group">
+				<%= f.label :emergency_detail, :class => "control-label" %>
+				<%= f.text_area :emergency_detail, :class => "form-control", :rows => "3" %>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="<%= form_tag_id(f.object_name, :guardian_info) %>">
+	<div class="row">
+		<div class="col-sm-6">
+			<div class="form-group">
+				<%= f.label :guardian_name, :class => "control-label" %>
+		        <%= f.text_field :guardian_name, :class => "form-control" %>
+			</div>
+		</div>
+		<div class="col-sm-6">
+			<div class="form-group">
+				<%= f.label :guardian_number, :class => "control-label" %>
+		        <%= f.text_field :guardian_number, :class => "form-control" %>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-sm-12">
+		<div class="form-group">
+			<%= f.label :followup, "What action was taken?", :class => "control-label" %>
+			<%= f.text_area :followup, :class => "form-control", :rows => "3" %>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-sm-1">
+	</div>
+	<div class="col-sm-1">
+		<div class="form-group">
+			<%= f.label :members_involved, :class => "control-label" %>
+			<%= f.check_box :members_involved, :class => "form-control" %>
+		</div>
+	</div>
+	<div class="col-sm-1">
+	</div>
+	<div class="col-sm-1">
+	</div>
+	<div class="col-sm-1">
+	</div>
+	<div class="col-sm-1">
+		<div class="form-group">
+			<%= f.label :staff_involved, :class => "control-label" %>
+			<%= f.check_box :staff_involved, :class => "form-control" %>
+		</div>
+	</div>
+	<div class="col-sm-1">
+	</div>
+	<div class="col-sm-1">
+	</div>
+	<div class="col-sm-1">
+	</div>
+	<div class="col-sm-1">
+		<div class="form-group">
+			<%= f.label :other_involved, :class => "control-label" %>
+			<%= f.check_box :other_involved, :class => "form-control" %>
+		</div>
+	</div>
+</div>
+
+<div id="<%= form_tag_id(f.object_name, :members) %>">
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="form-group">
+				<%= f.label :members_involved_detail, "Members involved?", :class => "control-label" %>
+				<%= f.text_area :members_involved_detail, :class => "form-control", :rows => "3" %>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="<%= form_tag_id(f.object_name, :staff) %>">
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="form-group">
+				<%= f.label :staff_involved_detail, "Staff involved?", :class => "control-label" %>
+				<%= f.text_area :staff_involved_detail, :class => "form-control", :rows => "3" %>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="<%= form_tag_id(f.object_name, :other) %>">
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="form-group">
+				<%= f.label :other_involved_detail, "Other involved?", :class => "control-label" %>
+				<%= f.text_area :other_involved_detail, :class => "form-control", :rows => "3" %>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('#<%= form_tag_id(f.object_name, :cps_notified) %>').change(function() {
+			if ( $(this).is(':checked') )
+			{
+	        	$("div#<%= form_tag_id(f.object_name, :cps_info) %>").show();
+	        }
+	        else
+			{
+	        	$("div#<%= form_tag_id(f.object_name, :cps_info) %>").hide();
+	        }
+	    }).trigger('change');
+	    
+		$('#<%= form_tag_id(f.object_name, :emergency_notified) %>').change(function() {
+			if ( $(this).is(':checked') )
+			{
+	        	$("div#<%= form_tag_id(f.object_name, :emergency_info) %>").show();
+	        }
+	        else
+			{
+	        	$("div#<%= form_tag_id(f.object_name, :emergency_info) %>").hide();
+	        }
+	    }).trigger('change');
+
+	    $('#<%= form_tag_id(f.object_name, :members_involved) %>').change(function() {
+			if ( $(this).is(':checked') )
+			{
+	        	$("div#<%= form_tag_id(f.object_name, :members) %>").show();
+	        }
+	        else
+			{
+	        	$("div#<%= form_tag_id(f.object_name, :members) %>").hide();
+	        }
+	    }).trigger('change');
+
+	    $('#<%= form_tag_id(f.object_name, :staff_involved) %>').change(function() {
+			if ( $(this).is(':checked') )
+			{
+	        	$("div#<%= form_tag_id(f.object_name, :staff) %>").show();
+	        }
+	        else
+			{
+	        	$("div#<%= form_tag_id(f.object_name, :staff) %>").hide();
+	        }
+	    }).trigger('change');
+
+	    $('#<%= form_tag_id(f.object_name, :other_involved) %>').change(function() {
+			if ( $(this).is(':checked') )
+			{
+	        	$("div#<%= form_tag_id(f.object_name, :other) %>").show();
+	        }
+	        else
+			{
+	        	$("div#<%= form_tag_id(f.object_name, :other) %>").hide();
+	        }
+	    }).trigger('change');
+
+	    $('#<%= form_tag_id(f.object_name, :guardian_notified) %>').change(function() {
+			if ( $(this).is(':checked') )
+			{
+	        	$("div#<%= form_tag_id(f.object_name, :guardian_info) %>").show();
+	        }
+	        else
+			{
+	        	$("div#<%= form_tag_id(f.object_name, :guardian_info) %>").hide();
+	        }
+	    }).trigger('change');
+	});
+</script>

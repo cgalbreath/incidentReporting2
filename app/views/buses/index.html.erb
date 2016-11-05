@@ -1,0 +1,29 @@
+<div class='col-md-10 col-md-offset-1'>
+  <h2>Buses</h2>
+  <%= link_to "New Bus", new_bus_path, remote: true, class: "btn btn-primary" %>
+  <hr>
+  <div class='panel panel-default'>
+    <div class='panel-body'>
+      <div class="table-responsive">
+        <table class="table table-hover table-striped table-bordered">
+          <thead>
+            <tr>
+              <th>Bus Number</th>
+              <th>Last 4 VIN</th>
+              <th>Plate Number</th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="buses">
+          <div class = "sort_paginate_ajax"><%= render @buses %></div>
+          </tbody>
+        </table>
+        <%= will_paginate @buses, renderer: BootstrapPagination::Rails %>
+      </div>
+
+      <%= render 'dialog' %>
+
+    </div>
+  </div>
+</div>

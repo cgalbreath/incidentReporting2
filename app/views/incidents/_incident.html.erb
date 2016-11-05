@@ -1,0 +1,13 @@
+<tr id="incident_<%= incident.id %>">
+    <td><%= link_to incident.id, incident_path(incident.id) %></td>
+    <td><%= incident.date_reported %></td>
+    <td><%= incident.date_of_incident %></td>
+    <td><%= incident.reporter %></td>
+    <td><%= incident.witness %></td>
+    <td>
+	    <%= link_to 'Edit', edit_incident_path(incident), remote: true, :class => 'btn btn-sm btn-primary' %>
+	</td>
+	<td>
+	    <%= link_to 'Delete', incident, remote: true, :method => :delete, data: {confirm: "Delete Incident: #{incident.reporter} #{incident.id}"}, :class => 'btn btn-sm btn-primary' %>
+	</td>
+</tr>

@@ -1,0 +1,25 @@
+
+<%= nested_form_for(@severity_level, remote: true, :html => { :role => "form" }) do |f| %>
+  <div id="error_explanation" class="bg-danger text-danger">
+
+  </div>
+
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="form-group">
+        <%= f.label :name, :class => "control-label" %>
+        <%= f.text_field :name, :class => "form-control" %>
+      </div>  
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <%= f.submit  @severity_level.new_record? ? "Create Severity Level" : "Update Severity Level", :class => "btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+<% end %>

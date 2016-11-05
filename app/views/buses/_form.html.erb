@@ -1,0 +1,54 @@
+<%= nested_form_for(@bus, remote: true, :html => { :role => "form" }) do |f| %>
+  <div id="error_explanation" class="bg-danger text-danger">
+
+  </div>
+
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="form-group">
+        <%= f.label :BUS_NUM, :class => "control-label" %>
+        <%= f.text_field :BUS_NUM, :class => "form-control" %>
+      </div>  
+    </div>
+    <div class="col-sm-6">
+      <div class="form-group">
+        <%= f.label :FOUR_VIN, :class => "control-label" %>
+        <%= f.text_field :FOUR_VIN, :class => "form-control" %>
+      </div>  
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="form-group">
+        <%= f.label :PLATE, :class => "control-label" %>
+        <%= f.text_field :PLATE, :class => "form-control" %>
+      </div>  
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="form-group">
+        <%= f.label :assigned_facilities, :class => "control-label" %>
+        <%= f.select :assigned_facilities, options_for_select(Facility.all.collect {|p| [ p.name, p.id ] }, @bus.assigned_facilities), { :include_hidden => false }, {:multiple => true, :class => 'form-control', :size =>10 } %>
+      </div>  
+    </div>
+    <div class="col-sm-6">
+      <div class="form-group">
+        <%= f.label :assigned_programs, :class => "control-label" %>
+        <%= f.select :assigned_programs, options_for_select(Program.all.collect {|p| [ p.name, p.id ] }, @bus.assigned_programs), { :include_hidden => false }, {:multiple => true, :class => 'form-control', :size =>10 } %>
+      </div>  
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <%= f.submit  @bus.new_record? ? "Create Bus" : "Update Bus", :class => "btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+<% end %>

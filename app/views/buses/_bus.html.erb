@@ -1,0 +1,11 @@
+<tr id="bus_<%= bus.id %>">
+    <td><%= bus.BUS_NUM %></td>
+    <td><%= bus.FOUR_VIN %></td>
+    <td><%= bus.PLATE %></td>
+    <td>
+	    <%= link_to 'Edit', edit_bus_path(bus), remote: true, :class => 'btn btn-sm btn-primary' %>
+	</td>
+    <td>
+	    <%= link_to 'Delete', bus, remote: true, :method => :delete, data: {confirm: "Delete Bus: #{bus.id}"}, :class => 'btn btn-sm btn-primary' %>
+	</td>
+</tr>

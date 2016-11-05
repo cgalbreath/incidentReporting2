@@ -1,0 +1,49 @@
+
+<%= nested_form_for(@facility, remote: true, :html => { :role => "form" }) do |f| %>
+  <div id="error_explanation" class="bg-danger text-danger">
+
+  </div>
+
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="form-group">
+        <%= f.label :name, :class => "control-label" %>
+        <%= f.text_field :name, :class => "form-control" %>
+      </div>  
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group">
+        <%= f.label :address, :class => "control-label" %>
+        <%= f.text_field :address, :class => "form-control" %>
+      </div>  
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="form-group">
+        <%= f.label :areas, :class => "control-label" %>
+        <%= f.select :areas, options_for_select(Area.all.collect {|p| [ p.name, p.id ] }, @facility.areas), { :include_hidden => false }, {:multiple => true, :class => 'form-control', :size =>10 } %>
+      </div>  
+    </div>
+    <div class="col-sm-6">
+      <div class="form-group">
+        <%= f.label :programs, :class => "control-label" %>
+        <%= f.select :programs, options_for_select(Program.all.collect {|p| [ p.name, p.id ] }, @facility.programs), { :include_hidden => false }, {:multiple => true, :class => 'form-control', :size =>10 } %>
+      </div>  
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <%= f.submit  @facility.new_record? ? "Create Facility" : "Update Facility", :class => "btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+<% end %>

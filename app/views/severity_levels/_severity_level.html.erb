@@ -1,0 +1,9 @@
+<tr id="severity_level_<%= severity_level.id %>">
+    <td><%= severity_level.name %></td>
+    <td>
+	    <%= link_to 'Edit', edit_severity_level_path(severity_level), remote: true, :class => 'btn btn-sm btn-primary' %>
+	</td>
+    <td>
+	    <%= link_to 'Delete', severity_level, remote: true, :method => :delete, data: {confirm: "Delete Severity Level: #{severity_level.id}"}, :class => 'btn btn-sm btn-primary' %>
+	</td>
+</tr>

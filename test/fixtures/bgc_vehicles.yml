@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  BUS#: MyString
+  4VIN: MyString
+  Plate: MyString
+
+two:
+  BUS#: MyString
+  4VIN: MyString
+  Plate: MyString

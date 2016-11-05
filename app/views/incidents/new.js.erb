@@ -1,0 +1,38 @@
+// Add the dialog title
+$('#dialog h3').html("<i class='glyphicon glyphicon-plus'></i> Add New Incident");
+ 
+// Render the new form
+$('.modal-body').html('<%= j render("form") %>');
+ 
+// Show the dynamic dialog
+$('#dialog').modal("show");
+ 
+// Set focus to the first element
+$('#dialog').on('shown.bs.modal', function () {
+	  $('.first_input').focus()
+  })
+
+$('#date_reported').datetimepicker();
+
+$('#date_of_incident').datetimepicker();
+
+$('#incident_location_id').on('change', function() {
+	if ( this.value == 1)
+	{
+	  $("div#loc-fac").show();
+	  $("div#loc-area").show();
+	  $("div#loc-address").show();
+	}
+	else if (this.value == 2)
+	{
+	  $("div#loc-fac").hide();
+	  $("div#loc-area").hide();
+	  $("div#loc-address").show();
+	}
+	else
+	{
+	  $("div#loc-fac").hide();
+	  $("div#loc-area").hide();
+	  $("div#loc-address").hide();
+	}
+}).trigger('change');

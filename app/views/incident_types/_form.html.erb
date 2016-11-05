@@ -1,0 +1,34 @@
+
+<%= nested_form_for(@incident_type, remote: true, :html => { :role => "form" }) do |f| %>
+  <div id="error_explanation" class="bg-danger text-danger">
+
+  </div>
+
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="form-group">
+        <%= f.label :name, :class => "control-label" %>
+        <%= f.text_field :name, :class => "form-control" %>
+      </div>  
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="form-group">
+        <%= f.label :description, :class => "control-label" %>
+        <%= f.text_field :description, :class => "form-control" %>
+      </div>  
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <%= f.submit  @incident_type.new_record? ? "Create Incident Type" : "Update Incident Type", :class => "btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+<% end %>
