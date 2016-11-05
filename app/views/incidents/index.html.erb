@@ -1,28 +1,30 @@
 <div class='col-md-10 col-md-offset-1'>
   <h2>Incidents</h2>
-  <%= link_to "New", new_incident_path %>
+  <%= link_to "New Incident", new_incident_path, remote: true, class: "btn btn-primary" %>
+  <hr>
   <div class='panel panel-default'>
     <div class='panel-body'>
-      <table class='table table-striped'>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Reporter</th>
-            <th>Witness</th>
-            <th>Location</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @incidents.each do |incident| %>
+      <div class="table-responsive">
+        <table class="table table-hover table-striped table-bordered">
+          <thead>
             <tr>
-              <td><%= link_to incident.id, incident_path(incident.id) %></td>
-              <td><%= incident.reporter %></td>
-              <td><%= incident.witness %></td>
-              <td><%= incident.location %></td>
+              <th>ID</th>
+              <th>Recorded Date</th>
+              <th>Incident Date</th>
+              <th>Reporter</th>
+              <th>Individual Affected</th>
+              <th></th>
+              <th></th>
             </tr>
-          <% end %>
-        </tbody>
-      </table>
+          </thead>
+          <tbody id="incidents">
+          <div class = "sort_paginate_ajax"><%= render @incidents %></div>
+          </tbody>
+        </table>
+        <%= will_paginate @incidents, renderer: BootstrapPagination::Rails %>
+      </div>
+
+      <%= render 'dialog' %>
 
     </div>
   </div>

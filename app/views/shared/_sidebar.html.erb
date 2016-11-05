@@ -1,6 +1,40 @@
 <div class="col-sm-3 col-md-2 sidebar">
   <ul class="nav nav-sidebar">
-    <li class="active"><a href="/#">Overview <span class="sr-only">(current)</span></a></li>
-    <li><a href="/incidents">Incidents</a></li>
+  	<li class="nav-divider"></li>
+    <li class="dropdown-header">General</li>
+    <li>
+    	<%= active_link_to "Home", root_path, :wrap_tag => :li, :active => :exclusive %>
+    </li>
+    <li>
+    	<%= active_link_to "Incidents", incidents_path, :wrap_tag => :li if current_user %>
+    </li>
+    <li>
+        <%= active_link_to "Reporting", reports_path, :wrap_tag => :li if current_user %>
+    </li>
+    <% if current_user.try(:admin?) %>
+        <li class="nav-divider"></li>
+        <li class="dropdown-header">Admin</li>
+        <li>
+        	<%= active_link_to "Users", users_path, :wrap_tag => :li if current_user.try(:admin?) %>
+        </li>
+        <li>
+            <%= active_link_to "Facilities", facilities_path, :wrap_tag => :li if current_user.try(:admin?) %>
+        </li>
+        <li>
+            <%= active_link_to "Areas", areas_path, :wrap_tag => :li if current_user.try(:admin?) %>
+        </li>
+        <li>
+            <%= active_link_to "Programs", programs_path, :wrap_tag => :li if current_user.try(:admin?) %>
+        </li>
+        <li>
+            <%= active_link_to "Bus List", buses_path, :wrap_tag => :li if current_user.try(:admin?) %>
+        </li>
+        <li>
+            <%= active_link_to "Incident Types", incident_types_path, :wrap_tag => :li if current_user.try(:admin?) %>
+        </li>
+        <li>
+            <%= active_link_to "Severity Levels", severity_levels_path, :wrap_tag => :li if current_user.try(:admin?) %>
+        </li>
+    <% end %>
   </ul>
 </div>

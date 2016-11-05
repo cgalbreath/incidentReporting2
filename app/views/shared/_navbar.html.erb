@@ -1,3 +1,12 @@
+<% if notice %>
+  <div id="notice_wrapper">
+    <p class="notice"><%= notice %></p>
+  </div>
+<% elsif alert %>
+  <div id="alert_wrapper">
+    <p class="alert"><%= alert %></p>
+  </div>
+<% end %>
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -7,28 +16,33 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/#">Incident Reporting</a>
+      <a class="navbar-brand" href="/" style="margin-top: -13px">
+        <span><img style="max-width:50px;background-color: rgba(255, 255, 255, 0)" src="/assets/images/logo.png"></span>
+        Incident Reporting
+      </a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
+      <%= render 'shared/sidebar' %>
       <ul class="nav navbar-nav navbar-right">
-        <li>
-          <a class="btn btn-primary" href="/incidents/new" role="button">New Incident</a>
-        </li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> John Smith <b class="caret"></b></a>
-          <ul class="dropdown-menu">
-            <li>
-              <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
-            </li>
-            <li>
-              <a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
-            </li>
-            <li class="divider"></li>
-            <li>
-              <a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
-            </li>
-          </ul>
-        </li>
+        <% if user_signed_in? %>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user" aria-hidden="true"></span><i class="fa fa-user"></i> <%= current_user.username %> <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li>
+                <i class="fa fa-fw fa-power-off"></i><%= link_to "Logout", destroy_user_session_path, method: :delete %>
+              </li>
+            </ul>
+          </li>
+        <% else %>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-off" aria-hidden="true"></span><i class="fa fa-user"></i> Login <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li>  
+                <i class="fa fa-fw fa-power-off"></i><%= link_to 'Login', '#login', {'data-toggle' => "modal", 'data-target' => '#login'} %>
+              </li>
+            </ul>
+          </li>
+        <% end %>
       </ul>
       <form class="navbar-form navbar-right">
         <input type="text" class="form-control" placeholder="Search...">

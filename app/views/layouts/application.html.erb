@@ -1,24 +1,21 @@
-<!DOCTYPE html>
 <html>
 <head>
   <title>IncidentReporting</title>
-  <link rel="stylesheet" media="all" href="/assets/application.css" data-turbolinks-track="true">
-  <script src="/assets/application.js" data-turbolinks-track="true"></script>
-  <script src="/assets/highcharts.js" data-turbolinks-track="true"></script>
-  <script src="/assets/modules/exporting.js" data-turbolinks-track="true"></script>
-  <link rel="stylesheet" media="all" href="/assets/dashboard.css" data-turbolinks-track="true">
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <link rel="stylesheet" media="all" href="/assets/css/dashboard.css" data-turbolinks-track="true">
   <%= csrf_meta_tags %>
 </head>
 <body>
   <%= render 'shared/navbar' %>
   <div class="container-fluid">
     <div class="row">
-      <%= render 'shared/sidebar' %>
       <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-        <%= render 'shared/pageheading' %>
+        <%= render 'shared/pageheading' %>       
         <%= yield %>
       </div>
     </div>
   </div>
+  <%= render 'shared/login' %>
 </body>
 </html>
