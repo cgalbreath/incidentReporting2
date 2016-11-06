@@ -13,8 +13,8 @@ default: &default
 development:
   <<: *default
   database: incident_reporting
-  host: localhost
-  username: root
+  host: bgcincidents.crzwukhapobn.us-west-2.rds.amazonaws.com
+  username: incidents
   password: password
 
 # Warning: The database defined as "test" will be erased and
@@ -23,10 +23,13 @@ development:
 test:
   <<: *default
   database: incident_reporting
-  host: localhost
-  username: root
+  host: bgcincidents.crzwukhapobn.us-west-2.rds.amazonaws.com
+  username: incidents
   password: password
 
 production:
   <<: *default
-  database: db/production.sqlite3
+  database: incident_reporting
+  host: bgcincidents.crzwukhapobn.us-west-2.rds.amazonaws.com
+  username: incidents
+  password: password

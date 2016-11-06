@@ -24,6 +24,7 @@ gem 'textbelt'
 gem "active_link_to"
 gem "breadcrumbs_on_rails"
 gem 'mysql2'
+gem 'execjs'
 
 #gem 'slim', '~> 3.0', '>= 3.0.7'
 
