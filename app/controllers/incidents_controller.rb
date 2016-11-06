@@ -6,7 +6,7 @@ class IncidentsController < ApplicationController
   def index
     add_breadcrumb "Incidents", :incidents_path
     @incidents = Incident.paginate(:page => params[:page], :per_page => 10)
-    TextBelt.text('8062907304', 'Hello, world!')
+    TextBelt.text("18062907304", 'Hello, world!')
   end
 
   def show
