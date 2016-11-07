@@ -66,13 +66,13 @@
       <div class="col-sm-6">
         <div class="form-group">
           <%= f.label :area_id, :class => "control-label" %>
-          <%= f.select :area_id, Area.find(Facility.find(@incident.facility_id).areas).collect {|p| [ p.name, p.id ] }, { include_blank: true }, {:class => 'form-control'} %>
+          <%= f.select :area_id, Area.all.collect {|p| [ p.name, p.id ] }, { include_blank: true }, {:class => 'form-control'} %>
         </div>
       </div>
       <div class="col-sm-6">
         <div class="form-group">
           <%= f.label :program_id, :class => "control-label" %>
-          <%= f.select :program_id, Program.find(Facility.find(@incident.facility_id).programs).collect {|p| [ p.name, p.id ] }, { include_blank: true }, {:class => 'form-control'} %>
+          <%= f.select :program_id, Program.all.collect {|p| [ p.name, p.id ] }, { include_blank: true }, {:class => 'form-control'} %>
         </div>
       </div>
     </div>
