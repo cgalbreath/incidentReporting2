@@ -1,6 +1,7 @@
 <tr id="user_<%= user.id %>">
     <td><%= user.username %></td>
     <td><%= user.email %></td>
+    <td><%= user.admin %></td>
     <td>
 	    <%= link_to 'Edit', edit_user_path(user), remote: true, :class => 'btn btn-sm btn-primary' %>
 	</td>

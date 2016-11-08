@@ -13,7 +13,7 @@ default: &default
 development:
   <<: *default
   database: incident_reporting
-  host: bgcincidents.crzwukhapobn.us-west-2.rds.amazonaws.com
+  host: localhost
   username: incidents
   password: password
 
@@ -23,13 +23,13 @@ development:
 test:
   <<: *default
   database: incident_reporting
-  host: bgcincidents.crzwukhapobn.us-west-2.rds.amazonaws.com
+  host: localhost
   username: incidents
   password: password
 
 production:
   <<: *default
   database: incident_reporting
-  host: bgcincidents.crzwukhapobn.us-west-2.rds.amazonaws.com
+  host: localhost
   username: incidents
   password: password
