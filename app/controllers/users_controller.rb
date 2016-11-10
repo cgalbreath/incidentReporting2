@@ -70,6 +70,7 @@ private
     params.require(:user).permit(:username,
                                  :email,
                                  :admin,
+                                 :password,
                                  {:facility_id => []},
                                  {:program_id => []},
                                  :first_name,
