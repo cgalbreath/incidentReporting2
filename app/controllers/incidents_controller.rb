@@ -5,7 +5,13 @@ class IncidentsController < ApplicationController
 
   def index
     add_breadcrumb "Incidents", :incidents_path
-    @incidents = Incident.paginate(:page => params[:page], :per_page => 10)
+    @search = Incident.search(params[:q])
+    @incidents = @search.result.paginate(:page => params[:page], :per_page => 10)
+  end
+
+  def search
+    index
+    render :index
   end
 
   def show

@@ -9,10 +9,10 @@
           <thead>
             <tr>
               <th>ID</th>
-              <th>Recorded Date</th>
-              <th>Incident Date</th>
-              <th>Reporter</th>
-              <th>Individual Affected</th>
+              <th><%= sort_link @search, :date_reported, "Recorded Date" %></th>
+              <th><%= sort_link @search, :date_of_incident, "Incident Date" %></th>
+              <th><%= sort_link @search, :reporter, "Reporter" %></th>
+              <th><%= sort_link @search, :witness, "Witness" %></th>
               <th></th>
               <th></th>
             </tr>

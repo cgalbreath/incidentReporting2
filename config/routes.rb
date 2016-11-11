@@ -9,7 +9,11 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root to: 'home#index'
 
-  resources :incidents
+  resources :incidents do
+    collection do
+      match 'search' => 'incidents#search', via: [:get, :post], as: :search
+    end
+  end
 
   resources :users
 

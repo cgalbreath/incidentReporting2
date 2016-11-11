@@ -44,9 +44,9 @@
           </li>
         <% end %>
       </ul>
-      <form class="navbar-form navbar-right">
-        <input type="text" class="form-control" placeholder="Search...">
-      </form>
+      <%= search_form_for @q, url: search_incidents_path, :class => "navbar-form navbar-right", html: { method: :post }  do |f| %>
+          <%= f.text_field :reporter_or_witness_cont, :class => "form-control", :placeholder => "Search..." %>
+      <% end %>
     </div>
   </div>
 </nav>
