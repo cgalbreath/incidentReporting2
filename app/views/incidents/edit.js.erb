@@ -35,8 +35,15 @@ $('#incident_location_id').on('change', function() {
 	  $("div#loc-area").hide();
 	  $("div#loc-address").hide();
 	}
-});
+}).trigger('change');
 
 $('#incident_facility_id').on('change', function() {
-
-});
+	if ((this.value > 0) && (document.getElementById("incident_location_id").value == 1))
+	{
+		$("#incident_physical_address").val("test");
+	}
+	else if (this.value < 0)
+	{
+		$("#incident_physical_address").val("");
+	}
+}).trigger('change');
