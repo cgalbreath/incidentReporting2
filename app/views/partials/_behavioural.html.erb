@@ -1,44 +1,45 @@
+<%= f.fields_for :behaviourals do |ff| %>
 <div class="row">
 	<div class="col-sm-6">
 	      <div class="form-group">
-			<%= f.label :involved_type_id, :class => "control-label" %>
-	        <%= f.select :involved_type_id, InvolvedType.all.collect {|p| [ p.name, p.id ] }, { include_blank: true }, {:class => 'form-control'} %>
+			<%= ff.label :behav_involved_type_id, :class => "control-label" %>
+	        <%= ff.select :behav_involved_type_id, InvolvedType.all.collect {|p| [ p.name, p.id ] }, { include_blank: true }, {:class => 'form-control'} %>
 		</div>
 	</div>
 	<div class="col-sm-6">
 	      <div class="form-group">
-			<%= f.label :involved_name, :class => "control-label" %>
-	        <%= f.text_field :involved_name, :class => "form-control" %>
+			<%= ff.label :behav_involved_name, :class => "control-label" %>
+	        <%= ff.text_field :behav_involved_name, :class => "form-control" %>
 		</div>
 	</div>
 </div>
 <div class="row">
 	<div class="col-sm-12">
 		<div class="form-group">
-			<%= f.label :description, :class => "control-label" %>
-			<%= f.text_area :description, :class => "form-control", :rows => "3" %>
+			<%= ff.label :behav_description, :class => "control-label" %>
+			<%= ff.text_area :behav_description, :class => "form-control", :rows => "3" %>
 		</div>
 	</div>
 </div>
 
 <div class="row">
 	<div class="col-sm-1">
-			<%= f.label :guardian_notified, :class => "control-label" %>
-	        <%= f.check_box :guardian_notified, :class => "form-control" %>
+			<%= ff.label :behav_guardian_notified, :class => "control-label" %>
+	        <%= ff.check_box :behav_guardian_notified, :class => "form-control" %>
 	</div>
 </div>
-<div id="<%= form_tag_id(f.object_name, :guardian_info) %>">
+<div id="behavioural_incident_detail_guardian_info">
 	<div class="row">
 		<div class="col-sm-6">
 			<div class="form-group">
-				<%= f.label :guardian_name, :class => "control-label" %>
-		        <%= f.text_field :guardian_name, :class => "form-control" %>
+				<%= ff.label :behav_guardian_name, :class => "control-label" %>
+		        <%= ff.text_field :behav_guardian_name, :class => "form-control" %>
 			</div>
 		</div>
 		<div class="col-sm-6">
 			<div class="form-group">
-				<%= f.label :guardian_number, :class => "control-label" %>
-		        <%= f.text_field :guardian_number, :class => "form-control" %>
+				<%= ff.label :behav_guardian_number, :class => "control-label" %>
+		        <%= ff.text_field :behav_guardian_number, :class => "form-control" %>
 			</div>
 		</div>
 	</div>
@@ -47,8 +48,8 @@
 <div class="row">
 	<div class="col-sm-12">
 	      <div class="form-group">
-			<%= f.label :counseling, "Counseling provided:", :class => "control-label" %>
-	        <%= f.text_area :counseling, :class => "form-control", :rows => "3" %>
+			<%= ff.label :behav_counseling, "Counseling provided:", :class => "control-label" %>
+	        <%= ff.text_area :behav_counseling, :class => "form-control", :rows => "3" %>
 		</div>
 	</div>
 </div>
@@ -56,8 +57,8 @@
 <div class="row">
 	<div class="col-sm-12">
 	      <div class="form-group">
-			<%= f.label :followup, "What follow-up occured?", :class => "control-label" %>
-	        <%= f.text_area :followup, :class => "form-control", :rows => "3" %>
+			<%= ff.label :behav_followup, "What follow-up occured?", :class => "control-label" %>
+	        <%= ff.text_area :behav_followup, :class => "form-control", :rows => "3" %>
 		</div>
 	</div>
 </div>
@@ -67,8 +68,8 @@
 	</div>
 	<div class="col-sm-1">
 		<div class="form-group">
-			<%= f.label :members_involved, :class => "control-label" %>
-			<%= f.check_box :members_involved, :class => "form-control" %>
+			<%= ff.label :behav_members_involved, :class => "control-label" %>
+			<%= ff.check_box :behav_members_involved, :class => "form-control" %>
 		</div>
 	</div>
 	<div class="col-sm-1">
@@ -79,8 +80,8 @@
 	</div>
 	<div class="col-sm-1">
 		<div class="form-group">
-			<%= f.label :staff_involved, :class => "control-label" %>
-			<%= f.check_box :staff_involved, :class => "form-control" %>
+			<%= ff.label :behav_staff_involved, :class => "control-label" %>
+			<%= ff.check_box :behav_staff_involved, :class => "form-control" %>
 		</div>
 	</div>
 	<div class="col-sm-1">
@@ -91,88 +92,89 @@
 	</div>
 	<div class="col-sm-1">
 		<div class="form-group">
-			<%= f.label :other_involved, :class => "control-label" %>
-			<%= f.check_box :other_involved, :class => "form-control" %>
+			<%= ff.label :behav_other_involved, :class => "control-label" %>
+			<%= ff.check_box :behav_other_involved, :class => "form-control" %>
 		</div>
 	</div>
 </div>
 
-<div id="<%= form_tag_id(f.object_name, :members) %>">
+<div id="behavioural_incident_detail_members">
 	<div class="row">
 		<div class="col-sm-12">
 			<div class="form-group">
-				<%= f.label :members_involved_detail, "Who was involved?", :class => "control-label" %>
-				<%= f.text_area :members_involved_detail, :class => "form-control", :rows => "3" %>
+				<%= ff.label :behav_members_involved_detail, "Who was involved?", :class => "control-label" %>
+				<%= ff.text_area :behav_members_involved_detail, :class => "form-control", :rows => "3" %>
 			</div>
 		</div>
 	</div>
 </div>
 
-<div id="<%= form_tag_id(f.object_name, :staff) %>">
+<div id="behavioural_incident_detail_staff">
 	<div class="row">
 		<div class="col-sm-12">
 			<div class="form-group">
-				<%= f.label :staff_involved_detail, "Who was involved?", :class => "control-label" %>
-				<%= f.text_area :staff_involved_detail, :class => "form-control", :rows => "3" %>
+				<%= ff.label :behav_staff_involved_detail, "Who was involved?", :class => "control-label" %>
+				<%= ff.text_area :behav_staff_involved_detail, :class => "form-control", :rows => "3" %>
 			</div>
 		</div>
 	</div>
 </div>
 
-<div id="<%= form_tag_id(f.object_name, :other) %>">
+<div id="behavioural_incident_detail_other">
 	<div class="row">
 		<div class="col-sm-12">
 			<div class="form-group">
-				<%= f.label :other_involved_detail, "Who was involved?", :class => "control-label" %>
-				<%= f.text_area :other_involved_detail, :class => "form-control", :rows => "3" %>
+				<%= ff.label :behav_other_involved_detail, "Who was involved?", :class => "control-label" %>
+				<%= ff.text_area :behav_other_involved_detail, :class => "form-control", :rows => "3" %>
 			</div>
 		</div>
 	</div>
 </div>
+<% end %>
 
 <script type="text/javascript">
 	$(document).ready(function(){
-	    $('#<%= form_tag_id(f.object_name, :members_involved) %>').change(function() {
+	    $('#behavioural_incident_detail_members_involved').change(function() {
 			if ( $(this).is(':checked') )
 			{
-	        	$("div#<%= form_tag_id(f.object_name, :members) %>").show();
+	        	$("div#behavioural_incident_detail_members").show();
 	        }
 	        else
 			{
-	        	$("div#<%= form_tag_id(f.object_name, :members) %>").hide();
+	        	$("div#behavioural_incident_detail_members").hide();
 	        }
 	    }).trigger('change');
 
-	    $('#<%= form_tag_id(f.object_name, :staff_involved) %>').change(function() {
+	    $('#behavioural_incident_detail_staff_involved').change(function() {
 			if ( $(this).is(':checked') )
 			{
-	        	$("div#<%= form_tag_id(f.object_name, :staff) %>").show();
+	        	$("div#behavioural_incident_detail_staff").show();
 	        }
 	        else
 			{
-	        	$("div#<%= form_tag_id(f.object_name, :staff) %>").hide();
+	        	$("div#behavioural_incident_detail_staff").hide();
 	        }
 	    }).trigger('change');
 
-	    $('#<%= form_tag_id(f.object_name, :other_involved) %>').change(function() {
+	    $('#behavioural_incident_detail_other_involved').change(function() {
 			if ( $(this).is(':checked') )
 			{
-	        	$("div#<%= form_tag_id(f.object_name, :other) %>").show();
+	        	$("div#behavioural_incident_detail_other").show();
 	        }
 	        else
 			{
-	        	$("div#<%= form_tag_id(f.object_name, :other) %>").hide();
+	        	$("div#behavioural_incident_detail_other").hide();
 	        }
 	    }).trigger('change');
 
-	    $('#<%= form_tag_id(f.object_name, :guardian_notified) %>').change(function() {
+	    $('#behavioural_incident_detail_guardian_notified').change(function() {
 			if ( $(this).is(':checked') )
 			{
-	        	$("div#<%= form_tag_id(f.object_name, :guardian_info) %>").show();
+	        	$("div#behavioural_incident_detail_guardian_info").show();
 	        }
 	        else
 			{
-	        	$("div#<%= form_tag_id(f.object_name, :guardian_info) %>").hide();
+	        	$("div#behavioural_incident_detail_guardian_info").hide();
 	        }
 	    }).trigger('change');
 	});

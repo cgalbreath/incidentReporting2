@@ -6,39 +6,33 @@
 	<li><a href="#vehicle" data-toggle="tab">Vehicle</a></li>
 	<li><a href="#property" data-toggle="tab">Property</a></li>
 	<li><a href="#behavioural" data-toggle="tab">Behavioural</a></li>
-	<li><a href="#abuse" data-toggle="tab">Abuse</a></li>
+	<li><a href="#misconduct" data-toggle="tab">Misconduct</a></li>
 </ul>
 </br>
 <div class="tab-content">
 	<div class="tab-pane active" id="general">
 		<div id="error_explanation" class="bg-danger text-danger">
 		</div> 
-		<%= render 'general', f: f %>
+		<%= render 'partials/general', f: f %>
 	</div>
 
 	<div class="tab-pane" id="injury">
-		<%= f.fields_for :incident_details %>
-  		<%= f.link_to_add "Add detail", :incident_details %>
+		<%= render 'partials/injury', f: f %>
 	</div> 
 	<div class="tab-pane" id="theft">
-		<%= f.fields_for :incident_details %>
-  		<%= f.link_to_add "Add detail", :incident_details %>
+		<%= render 'partials/theft', f: f %>
 	</div>
 	<div class="tab-pane" id="vehicle">
-		<%= f.fields_for :incident_details %>
-  		<%= f.link_to_add "Add detail", :incident_details %>
+		<%= render 'partials/veh_accident', f: f %>
 	</div> 
 	<div class="tab-pane" id="property">
-		<%= f.fields_for :incident_details %>
-  		<%= f.link_to_add "Add detail", :incident_details %>
+		<%= render 'partials/prop_damage', f: f %>
 	</div>  
 	<div class="tab-pane" id="behavioural">
-		<%= f.fields_for :incident_details %>
-  		<%= f.link_to_add "Add detail", :incident_details %>
+		<%= render 'partials/behavioural', f: f %>
 	</div> 
-	<div class="tab-pane" id="abuse">
-		<%= f.fields_for :incident_details %>
-  		<%= f.link_to_add "Add detail", :incident_details %>
+	<div class="tab-pane" id="misconduct">
+		<%= render 'partials/misconduct', f: f %>
 	</div>
 
 	<div class="row">

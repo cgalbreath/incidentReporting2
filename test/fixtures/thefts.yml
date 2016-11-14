@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  description: MyText
+  emergency_notified: false
+
+two:
+  description: MyText
+  emergency_notified: false

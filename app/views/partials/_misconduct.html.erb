@@ -1,0 +1,228 @@
+<%= f.fields_for :misconducts do |ff| %>
+<div class="row">
+	<div class="col-sm-12">
+		<div class="form-group">
+			<%= ff.label :misconduct_description, "What occured?", :class => "control-label" %>
+			<%= ff.text_area :misconduct_description, :class => "form-control", :rows => "3" %>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-sm-1">
+	</div>
+	<div class="col-sm-1">
+			<%= ff.label :misconduct_cps_notified, :class => "control-label" %>
+	        <%= ff.check_box :misconduct_cps_notified, :class => "form-control" %>
+	</div>
+	<div class="col-sm-1">
+	</div>
+	<div class="col-sm-1">
+	</div>
+	<div class="col-sm-1">
+	</div>
+	<div class="col-sm-1">
+		<div class="form-group">
+			<%= ff.label :misconduct_emergency_notified, "Police Report filed?",:class => "control-label" %>
+	        <%= ff.check_box :misconduct_emergency_notified, :class => "form-control" %>
+		</div>
+	</div>
+	<div class="col-sm-1">
+	</div>
+	<div class="col-sm-1">
+	</div>
+	<div class="col-sm-1">
+	</div>
+	<div class="col-sm-1">
+			<%= ff.label :misconduct_guardian_notified, :class => "control-label" %>
+	        <%= ff.check_box :misconduct_guardian_notified, :class => "form-control" %>
+	</div>
+</div>
+
+<div id="misconduct_incident_detail_cps_info">
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="form-group">
+				<%= ff.label :misconduct_cps_detail, :class => "control-label" %>
+		        <%= ff.text_area :misconduct_cps_detail, :class => "form-control", :rows => "3" %>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="misconduct_incident_detail_emergency_info">
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="form-group">
+				<%= ff.label :misconduct_emergency_detail, :class => "control-label" %>
+				<%= ff.text_area :misconduct_emergency_detail, :class => "form-control", :rows => "3" %>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="misconduct_incident_detail_guardian_info">
+	<div class="row">
+		<div class="col-sm-6">
+			<div class="form-group">
+				<%= ff.label :misconduct_guardian_name, :class => "control-label" %>
+		        <%= ff.text_field :misconduct_guardian_name, :class => "form-control" %>
+			</div>
+		</div>
+		<div class="col-sm-6">
+			<div class="form-group">
+				<%= ff.label :misconduct_guardian_number, :class => "control-label" %>
+		        <%= ff.text_field :misconduct_guardian_number, :class => "form-control" %>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-sm-12">
+		<div class="form-group">
+			<%= ff.label :misconduct_followup, "What action was taken?", :class => "control-label" %>
+			<%= ff.text_area :misconduct_followup, :class => "form-control", :rows => "3" %>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-sm-1">
+	</div>
+	<div class="col-sm-1">
+		<div class="form-group">
+			<%= ff.label :misconduct_members_involved, :class => "control-label" %>
+			<%= ff.check_box :misconduct_members_involved, :class => "form-control" %>
+		</div>
+	</div>
+	<div class="col-sm-1">
+	</div>
+	<div class="col-sm-1">
+	</div>
+	<div class="col-sm-1">
+	</div>
+	<div class="col-sm-1">
+		<div class="form-group">
+			<%= ff.label :misconduct_staff_involved, :class => "control-label" %>
+			<%= ff.check_box :misconduct_staff_involved, :class => "form-control" %>
+		</div>
+	</div>
+	<div class="col-sm-1">
+	</div>
+	<div class="col-sm-1">
+	</div>
+	<div class="col-sm-1">
+	</div>
+	<div class="col-sm-1">
+		<div class="form-group">
+			<%= ff.label :misconduct_other_involved, :class => "control-label" %>
+			<%= ff.check_box :misconduct_other_involved, :class => "form-control" %>
+		</div>
+	</div>
+</div>
+
+<div id="misconduct_incident_detail_members">
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="form-group">
+				<%= ff.label :misconduct_members_involved_detail, "Members involved?", :class => "control-label" %>
+				<%= ff.text_area :misconduct_members_involved_detail, :class => "form-control", :rows => "3" %>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="misconduct_incident_detail_staff">
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="form-group">
+				<%= ff.label :misconduct_staff_involved_detail, "Staff involved?", :class => "control-label" %>
+				<%= ff.text_area :misconduct_staff_involved_detail, :class => "form-control", :rows => "3" %>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="misconduct_incident_detail_other">
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="form-group">
+				<%= ff.label :misconduct_other_involved_detail, "Other involved?", :class => "control-label" %>
+				<%= ff.text_area :misconduct_other_involved_detail, :class => "form-control", :rows => "3" %>
+			</div>
+		</div>
+	</div>
+</div>
+<% end %>
+
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('#misconduct_incident_detail_cps_notified').change(function() {
+			if ( $(this).is(':checked') )
+			{
+	        	$("div#misconduct_incident_detail_cps_info").show();
+	        }
+	        else
+			{
+	        	$("div#misconduct_incident_detail_cps_info").hide();
+	        }
+	    }).trigger('change');
+	    
+		$('#misconduct_incident_detail_emergency_notified').change(function() {
+			if ( $(this).is(':checked') )
+			{
+	        	$("div#misconduct_incident_detail_emergency_info").show();
+	        }
+	        else
+			{
+	        	$("div#misconduct_incident_detail_emergency_info").hide();
+	        }
+	    }).trigger('change');
+
+	    $('#misconduct_incident_detail_members_involved').change(function() {
+			if ( $(this).is(':checked') )
+			{
+	        	$("div#misconduct_incident_detail_members").show();
+	        }
+	        else
+			{
+	        	$("div#misconduct_incident_detail_members").hide();
+	        }
+	    }).trigger('change');
+
+	    $('#misconduct_incident_detail_staff_involved').change(function() {
+			if ( $(this).is(':checked') )
+			{
+	        	$("div#misconduct_incident_detail_staff").show();
+	        }
+	        else
+			{
+	        	$("div#misconduct_incident_detail_staff").hide();
+	        }
+	    }).trigger('change');
+
+	    $('#misconduct_incident_detail_other_involved').change(function() {
+			if ( $(this).is(':checked') )
+			{
+	        	$("div#misconduct_incident_detail_other").show();
+	        }
+	        else
+			{
+	        	$("div#misconduct_incident_detail_other").hide();
+	        }
+	    }).trigger('change');
+
+	    $('#misconduct_incident_detail_guardian_notified').change(function() {
+			if ( $(this).is(':checked') )
+			{
+	        	$("div#misconduct_incident_detail_guardian_info").show();
+	        }
+	        else
+			{
+	        	$("div#misconduct_incident_detail_guardian_info").hide();
+	        }
+	    }).trigger('change');
+	});
+</script>

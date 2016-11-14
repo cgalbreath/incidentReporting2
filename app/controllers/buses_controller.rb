@@ -4,12 +4,8 @@ class BusesController < ApplicationController
   before_action :set_bus, only: [:show, :edit, :update, :destroy]
 
   def check_if_admin
-    if signed_in?
-      raise 'Only admins allowed!' unless current_user.admin?
-    else
-      # or you can use the authenticate_user! devise provides to only allow signed_in users
-      raise 'Please sign in!'
-    end
+    return unless !current_user.admin?
+    redirect_to root_path, alert: 'Admins only!'
   end
 
   def index

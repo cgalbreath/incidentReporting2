@@ -6,23 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-incident1 = Incident.create(date_reported: '08/12/2015 02:16 PM', date_of_incident: '08/12/15 02:16PM', reporter: 'Matthew Hassey', reporter_atc: 'Staff', witness: 'Andre', witness_atc: 'Club Member', description: 'Nose bleed', physical_address: '5021 Ave G.', facility_id: '1', area_id: '1', location_id: '1', program_id: '1')
-incident2 = Incident.create(date_reported: '01/27/2015 12:37 PM', date_of_incident: '01/27/2015 12:37 PM', reporter: 'Chris Matthews', reporter_atc: 'Staff', witness: 'Steve', witness_atc: 'Club Member', description: 'Jumped off table and hit head', physical_address: '3634 Woodbluf', facility_id: '1', area_id: '1', location_id: '1', program_id: '1')
-incident3 = Incident.create(date_reported: '06/22/2015 03:44 PM', date_of_incident: '06/22/2015 03:44 PM', reporter: 'Manny Machado', reporter_atc: 'Staff', witness: 'Mark', witness_atc: 'Club Member', description: 'Fight broke out between member and visitor', physical_address: '1507 Maple Dr.', facility_id: '1', area_id: '1', location_id: '1', program_id: '1')
-incident4 = Incident.create(date_reported: '09/21/2015 06:44 PM', date_of_incident: '09/21/2015 06:44 PM', reporter: 'Josh Matts', reporter_atc: 'Staff', witness: 'Cody', witness_atc: 'Staff', description: 'Club member Shoulder popped', physical_address: '443 Tinker St.', facility_id: '1', area_id: '1', location_id: '1', program_id: '1')
-incident5 = Incident.create(date_reported: '08/05/2015 12:30 PM', date_of_incident: '08/05/2015 12:30 PM', reporter: 'Armando Rodriguez', reporter_atc: 'Staff', witness: 'Mitch', witness_atc: 'Staff', description: 'Club member caught kissing a non-member', physical_address: '234 Melania Rd.', facility_id: '1', area_id: '1', location_id: '1', program_id: '1')
-
-
-IncidentDetail.create(incident_id: incident1.id, incident_type_id: 1, involved_name: 'Chris', involved_atc: 'Club Member', guardian_name: '', guardian_number: '', guardian_notified_date: '', VIN: '', description: '', first_aid: 'Yes', guardian_notified: 'No', emergency_notified: 'No', parent_pickup: 'No', followup: 'No')
-IncidentDetail.create(incident_id: incident2.id, incident_type_id: 1, involved_name: 'Adam', involved_atc: 'Club Member', guardian_name: '', guardian_number: '', guardian_notified_date: '', VIN: '', description: '', first_aid: 'Yes', guardian_notified: 'No', emergency_notified: 'No', parent_pickup: 'No', followup: 'Ointment was applied to the cut')
-IncidentDetail.create(incident_id: incident3.id, incident_type_id: 2, involved_name: 'Bryan', involved_atc: 'Club Member', guardian_name: '', guardian_number: '', guardian_notified_date: '', VIN: '', description: 'Shut down facility for safety purposes', first_aid: 'Yes', guardian_notified: 'No', emergency_notified: 'Yes', parent_pickup: 'No', followup: 'Police arrived and visitor left the scene.')
-IncidentDetail.create(incident_id: incident3.id, incident_type_id: 2, involved_name: 'Collin', involved_atc: 'Guest', guardian_name: '', guardian_number: '', guardian_notified_date: '', VIN: '', description: 'Shut down facility for safety purposes', first_aid: 'Yes', guardian_notified: 'No', emergency_notified: 'Yes', parent_pickup: 'No', followup: 'Police arrived and visitor left the scene.')
-IncidentDetail.create(incident_id: incident4.id, incident_type_id: 1, involved_name: 'Max', involved_atc: 'Club Member', guardian_name: 'Chris', guardian_number: '', guardian_notified_date: '09/21/2015', VIN: '', description: 'Popped shoulder', first_aid: 'No', guardian_notified: 'Yes', emergency_notified: 'No', parent_pickup: 'No', followup: 'Ice Pack')
-IncidentDetail.create(incident_id: incident5.id, incident_type_id: 2, involved_name: 'Betty', involved_atc: 'Club Member', guardian_name: '', guardian_number: '', guardian_notified_date: '', VIN: '', description: 'Kissed non-member', first_aid: 'No', guardian_notified: 'No', emergency_notified: 'Yes', parent_pickup: 'No', followup: '')
-IncidentDetail.create(incident_id: incident5.id, incident_type_id: 2, involved_name: 'Sam', involved_atc: 'Other', guardian_name: '', guardian_number: '', guardian_notified_date: '', VIN: '', description: 'Kissed member', first_aid: 'No', guardian_notified: 'No', emergency_notified: 'Yes', parent_pickup: 'No', followup: 'Given criminal trespass by police')
-
-
-User.create!({email: "admin@admin.com", username: "admin", password: "password", password_confirmation: "password", admin: true })
+User.create!({email: "galbreathcody@gmail.com", username: "admin", password: "password", password_confirmation: "password", admin: true, first_name: "Cody", last_name: "Galbreath", phone: "806-290-7304", :confirmed_at => DateTime.now })
 
 IncidentType.create(name: 'Injury')
 IncidentType.create(name: 'Theft')

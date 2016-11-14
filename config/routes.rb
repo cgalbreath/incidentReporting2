@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: {
     sessions: 'users/sessions',
-    registrations: 'users/registrations'
+    registrations: 'users/registrations',
+    invitations: 'users/invitations'
   }
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -9,21 +10,33 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root to: 'home#index'
 
-  resources :incidents do
-    collection do
-      match 'search' => 'incidents#search', via: [:get, :post], as: :search
-    end
-  end
-
-  resources :users
+  resources :incidents
 
   resources :facilities
+
+  resources :injuries
+
+  resources :thefts
+
+  resources :vehicle_accidents
+
+  resources :behaviourals
+
+  resources :property_damages
+
+  resources :misconducts
+
+  resources :users
 
   resources :incident_types
 
   resources :severity_levels
 
-  resources :reports
+  resources :reports do
+    collection do
+      match 'search' => 'reports#search', via: [:get, :post], as: :search
+    end
+  end
 
   resources :areas
 

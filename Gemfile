@@ -19,6 +19,7 @@ gem 'bootstrap3-datetimepicker-rails', '~> 4.17.37'
 gem "nested_form"
 gem 'will_paginate-bootstrap'
 gem 'devise'
+gem 'devise_invitable'
 gem 'phonelib'
 gem 'textbelt'
 gem "active_link_to"

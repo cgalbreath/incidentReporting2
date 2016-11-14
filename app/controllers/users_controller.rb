@@ -4,16 +4,13 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def check_if_admin
-    if signed_in?
-      raise 'Only admins allowed!' unless current_user.admin?
-    else
-      # or you can use the authenticate_user! devise provides to only allow signed_in users
-      raise 'Please sign in!'
-    end
+    return unless !current_user.admin?
+    redirect_to root_path, alert: 'Admins only!'
   end
 
   def index
     add_breadcrumb "Users", :users_path
+    # UserMailer.sample_email(User.first).deliver_now
   	@users = User.paginate(:page => params[:page], :per_page => 10)
   end
 
@@ -22,7 +19,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.create(user_params)
+    @user = User.invite!(user_params)
 
     respond_to do |format|
       if @user.save
@@ -41,7 +38,7 @@ class UsersController < ApplicationController
 
   def update
     respond_to do |format|
-      if @user.update(user_params)
+      if @user.update_attributes(user_params)
         format.json { head :no_content }
         format.js
       else
@@ -70,7 +67,6 @@ private
     params.require(:user).permit(:username,
                                  :email,
                                  :admin,
-                                 :password,
                                  {:facility_id => []},
                                  {:program_id => []},
                                  :first_name,

@@ -11,3 +11,14 @@ $('#dialog').modal("show");
 $('#dialog').on('shown.bs.modal', function () {
 	  $('.first_input').focus()
   })
+
+$('#user_admin').on('change', function() {
+	if ( $(this).is(':checked') )
+	{
+    	$("div#isAdmin").hide();
+    }
+    else
+	{
+    	$("div#isAdmin").show();
+    }
+}).trigger('change');

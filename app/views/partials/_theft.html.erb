@@ -1,8 +1,9 @@
+<%= f.fields_for :thefts do |ff| %>
 <div class="row">
 	<div class="col-sm-12">
 		<div class="form-group">
-			<%= f.label :description, "What property was stolen? (provide serial number)", :class => "control-label" %>
-			<%= f.text_area :description, :class => "form-control", :rows => "3" %>
+			<%= ff.label :theft_description, "What property was stolen? (provide serial number)", :class => "control-label" %>
+			<%= ff.text_area :theft_description, :class => "form-control", :rows => "3" %>
 		</div>
 	</div>
 </div>
@@ -12,8 +13,8 @@
 	</div>
 	<div class="col-sm-1">
 		<div class="form-group">
-			<%= f.label :emergency_notified, "Police Report filed?",:class => "control-label" %>
-	        <%= f.check_box :emergency_notified, :class => "form-control" %>
+			<%= ff.label :theft_emergency_notified, "Police Report filed?",:class => "control-label" %>
+	        <%= ff.check_box :theft_emergency_notified, :class => "form-control" %>
 		</div>
 	</div>
 	<div class="col-sm-1">
@@ -24,8 +25,8 @@
 	</div>
 	<div class="col-sm-1">
 		<div class="form-group">
-			<%= f.label :insurance_filed, "Insurance claim filed?", :class => "control-label" %>
-	        <%= f.check_box :insurance_filed, :class => "form-control" %>
+			<%= ff.label :theft_insurance_filed, "Insurance claim filed?", :class => "control-label" %>
+	        <%= ff.check_box :theft_insurance_filed, :class => "form-control" %>
 		</div>
 	</div>
 	<div class="col-sm-1">
@@ -36,29 +37,29 @@
 	</div>
 	<div class="col-sm-1">
 		<div class="form-group">
-			<%= f.label :security_video, "Security Video?", :class => "control-label" %>
-	        <%= f.check_box :security_video, :class => "form-control" %>
+			<%= ff.label :theft_security_video, "Security Video?", :class => "control-label" %>
+	        <%= ff.check_box :theft_security_video, :class => "form-control" %>
 		</div>
 	</div>
 </div>
 
-<div id="<%= form_tag_id(f.object_name, :emergency_info) %>">
+<div id="theft_incident_detail_emergency_info">
 	<div class="row">
 		<div class="col-sm-12">
 			<div class="form-group">
-				<%= f.label :emergency_detail, :class => "control-label" %>
-				<%= f.text_area :emergency_detail, :class => "form-control", :rows => "3" %>
+				<%= ff.label :theft_emergency_detail, :class => "control-label" %>
+				<%= ff.text_area :theft_emergency_detail, :class => "form-control", :rows => "3" %>
 			</div>
 		</div>
 	</div>
 </div>
 
-<div id="<%= form_tag_id(f.object_name, :insurance_info) %>">
+<div id="theft_incident_detail_insurance_info">
 	<div class="row">
 		<div class="col-sm-12">
 			<div class="form-group">
-				<%= f.label :insurance_filed_detail, :class => "control-label" %>
-				<%= f.text_area :insurance_filed_detail, :class => "form-control", :rows => "3" %>
+				<%= ff.label :theft_insurance_filed_detail, :class => "control-label" %>
+				<%= ff.text_area :theft_insurance_filed_detail, :class => "form-control", :rows => "3" %>
 			</div>
 		</div>
 	</div>
@@ -69,8 +70,8 @@
 	</div>
 	<div class="col-sm-1">
 		<div class="form-group">
-			<%= f.label :members_involved, :class => "control-label" %>
-			<%= f.check_box :members_involved, :class => "form-control" %>
+			<%= ff.label :theft_members_involved, :class => "control-label" %>
+			<%= ff.check_box :theft_members_involved, :class => "form-control" %>
 		</div>
 	</div>
 	<div class="col-sm-1">
@@ -81,8 +82,8 @@
 	</div>
 	<div class="col-sm-1">
 		<div class="form-group">
-			<%= f.label :staff_involved, :class => "control-label" %>
-			<%= f.check_box :staff_involved, :class => "form-control" %>
+			<%= ff.label :theft_staff_involved, :class => "control-label" %>
+			<%= ff.check_box :theft_staff_involved, :class => "form-control" %>
 		</div>
 	</div>
 	<div class="col-sm-1">
@@ -93,89 +94,101 @@
 	</div>
 	<div class="col-sm-1">
 		<div class="form-group">
-			<%= f.label :other_involved, :class => "control-label" %>
-			<%= f.check_box :other_involved, :class => "form-control" %>
+			<%= ff.label :theft_other_involved, :class => "control-label" %>
+			<%= ff.check_box :theft_other_involved, :class => "form-control" %>
 		</div>
 	</div>
 </div>
 
-<div id="<%= form_tag_id(f.object_name, :members) %>">
+<div id="theft_incident_detail_members">
 	<div class="row">
 		<div class="col-sm-12">
 			<div class="form-group">
-				<%= f.label :members_involved_detail, "Members involved?", :class => "control-label" %>
-				<%= f.text_area :members_involved_detail, :class => "form-control", :rows => "3" %>
+				<%= ff.label :theft_members_involved_detail, "Members involved?", :class => "control-label" %>
+				<%= ff.text_area :theft_members_involved_detail, :class => "form-control", :rows => "3" %>
 			</div>
 		</div>
 	</div>
 </div>
 
-<div id="<%= form_tag_id(f.object_name, :staff) %>">
+<div id="theft_incident_detail_staff">
 	<div class="row">
 		<div class="col-sm-12">
 			<div class="form-group">
-				<%= f.label :staff_involved_detail, "Staff involved?", :class => "control-label" %>
-				<%= f.text_area :staff_involved_detail, :class => "form-control", :rows => "3" %>
+				<%= ff.label :theft_staff_involved_detail, "Staff involved?", :class => "control-label" %>
+				<%= ff.text_area :theft_staff_involved_detail, :class => "form-control", :rows => "3" %>
 			</div>
 		</div>
 	</div>
 </div>
 
-<div id="<%= form_tag_id(f.object_name, :other) %>">
+<div id="theft_incident_detail_other">
 	<div class="row">
 		<div class="col-sm-12">
 			<div class="form-group">
-				<%= f.label :other_involved_detail, "Other involved?", :class => "control-label" %>
-				<%= f.text_area :other_involved_detail, :class => "form-control", :rows => "3" %>
+				<%= ff.label :theft_other_involved_detail, "Other involved?", :class => "control-label" %>
+				<%= ff.text_area :theft_other_involved_detail, :class => "form-control", :rows => "3" %>
 			</div>
 		</div>
 	</div>
 </div>
+<% end %>
 
 <script type="text/javascript">
 	$(document).ready(function(){
 	    
-		$('#<%= form_tag_id(f.object_name, :emergency_notified) %>').change(function() {
+		$('#theft_incident_detail_emergency_notified').change(function() {
 			if ( $(this).is(':checked') )
 			{
-	        	$("div#<%= form_tag_id(f.object_name, :emergency_info) %>").show();
+	        	$("div#theft_incident_detail_emergency_info").show();
 	        }
 	        else
 			{
-	        	$("div#<%= form_tag_id(f.object_name, :emergency_info) %>").hide();
+	        	$("div#theft_incident_detail_emergency_info").hide();
 	        }
 	    }).trigger('change');
 
-	    $('#<%= form_tag_id(f.object_name, :members_involved) %>').change(function() {
+	    $('#theft_incident_detail_insurance_filed').change(function() {
 			if ( $(this).is(':checked') )
 			{
-	        	$("div#<%= form_tag_id(f.object_name, :members) %>").show();
+	        	$("div#theft_incident_detail_insurance_info").show();
 	        }
 	        else
 			{
-	        	$("div#<%= form_tag_id(f.object_name, :members) %>").hide();
+	        	$("div#theft_incident_detail_insurance_info").hide();
 	        }
 	    }).trigger('change');
 
-	    $('#<%= form_tag_id(f.object_name, :staff_involved) %>').change(function() {
+	    $('#theft_incident_detail_members_involved').change(function() {
 			if ( $(this).is(':checked') )
 			{
-	        	$("div#<%= form_tag_id(f.object_name, :staff) %>").show();
+	        	$("div#theft_incident_detail_members").show();
 	        }
 	        else
 			{
-	        	$("div#<%= form_tag_id(f.object_name, :staff) %>").hide();
+	        	$("div#theft_incident_detail_members").hide();
 	        }
 	    }).trigger('change');
 
-	    $('#<%= form_tag_id(f.object_name, :other_involved) %>').change(function() {
+	    $('#theft_incident_detail_staff_involved').change(function() {
 			if ( $(this).is(':checked') )
 			{
-	        	$("div#<%= form_tag_id(f.object_name, :other) %>").show();
+	        	$("div#theft_incident_detail_staff").show();
 	        }
 	        else
 			{
-	        	$("div#<%= form_tag_id(f.object_name, :other) %>").hide();
+	        	$("div#theft_incident_detail_staff").hide();
+	        }
+	    }).trigger('change');
+
+	    $('#theft_incident_detail_other_involved').change(function() {
+			if ( $(this).is(':checked') )
+			{
+	        	$("div#theft_incident_detail_other").show();
+	        }
+	        else
+			{
+	        	$("div#theft_incident_detail_other").hide();
 	        }
 	    }).trigger('change');
 	});
