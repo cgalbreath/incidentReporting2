@@ -31,6 +31,7 @@ class IncidentsController < ApplicationController
     @incident.property_damages.build
     @incident.behaviourals.build
     @incident.misconducts.build
+    @facility = Facility.first
     @sysDateTime = DateTime.current().strftime("%m/%d/%Y %I:%M %p")
   end
 

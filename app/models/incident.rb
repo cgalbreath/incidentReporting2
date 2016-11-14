@@ -1,4 +1,5 @@
 class Incident < ActiveRecord::Base
+	belongs_to :facility
 	has_many :injuries, dependent: :destroy
 	has_many :misconducts, dependent: :destroy
 	has_many :behaviourals, dependent: :destroy

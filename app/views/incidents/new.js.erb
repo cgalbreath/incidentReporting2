@@ -38,11 +38,51 @@ $('#incident_location_id').on('change', function() {
 }).trigger('change');
 
 $('#incident_facility_id').on('change', function() {
-	if ((this.value > 0) && (document.getElementById("incident_location_id").value == 1))
+	if ((this.value == 1) && (document.getElementById("incident_location_id").value == 1))
 	{
-		$("#incident_physical_address").val("test");
+		$("#incident_physical_address").val("<%= Facility.find(1).address %>");
+	}
+	else if (this.value == 2)
+	{
+		$("#incident_physical_address").val("<%= Facility.find(2).address %>");
+	}
+	else if (this.value == 3)
+	{
+		$("#incident_physical_address").val("<%= Facility.find(3).address %>");
+	}
+	else if (this.value == 4)
+	{
+		$("#incident_physical_address").val("<%= Facility.find(4).address %>");
+	}
+	else if (this.value == 5)
+	{
+		$("#incident_physical_address").val("<%= Facility.find(5).address %>");
+	}
+	else if (this.value == 6)
+	{
+		$("#incident_physical_address").val("<%= Facility.find(6).address %>");
+	}
+	else if (this.value == 7)
+	{
+		$("#incident_physical_address").val("<%= Facility.find(7).address %>");
+	}
+	else if (this.value == 8)
+	{
+		$("#incident_physical_address").val("<%= Facility.find(8).address %>");
+	}
+	else if (this.value == 9)
+	{
+		$("#incident_physical_address").val("<%= Facility.find(9).address %>");
+	}
+	else if (this.value == 10)
+	{
+		$("#incident_physical_address").val("<%= Facility.find(10).address %>");
 	}
 	else if (this.value < 0)
+	{
+		$("#incident_physical_address").val("");
+	}
+	else
 	{
 		$("#incident_physical_address").val("");
 	}

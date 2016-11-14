@@ -1,3 +1,3 @@
 class Program < ActiveRecord::Base
-	belongs_to :incident_detail
+	belongs_to :facility
 end
