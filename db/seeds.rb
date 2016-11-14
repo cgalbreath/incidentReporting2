@@ -7,6 +7,8 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 User.create!({email: "galbreathcody@gmail.com", username: "admin", password: "password", password_confirmation: "password", admin: true, first_name: "Cody", last_name: "Galbreath", phone: "806-290-7304", :confirmed_at => DateTime.now })
+User.create!({email: "jnewsom@fortworthkids.org", username: "jnewsom", password: "password", password_confirmation: "password", admin: true, first_name: "James", last_name: "Newsom", phone: "682-402-6849", :confirmed_at => DateTime.now })
+
 
 IncidentType.create(name: 'Injury')
 IncidentType.create(name: 'Theft')
