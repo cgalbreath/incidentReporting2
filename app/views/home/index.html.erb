@@ -2,17 +2,19 @@
   <div class='panel panel-default'>
     <div class='panel-body'>
       <div class="row">
-        <div class="col-sm-6">
+        <div class="col-sm-12">
           <%= high_chart("incident_chart", @incidents_chart) do |c| %>
             <%= raw "options.tooltip.formatter = function() {return this.point.name + ' - ' + this.y;}"  %>
             <%= raw "options.plotOptions.pie.dataLabels.formatter = function() { if (this.y > 5) return this.point.name; }"  %>
           <% end %>
         </div>
+      </div>
+      <div class="row">
         <div class="col-sm-6">
-          <%= high_chart("user_chart", @users_chart) do |c| %>
-            <%= raw "options.tooltip.formatter = function() {return this.point.name + ' - ' + this.y;}"  %>
-            <%= raw "options.plotOptions.pie.dataLabels.formatter = function() { if (this.y > 5) return this.point.name; }"  %>
-          <% end %>
+          <%= high_chart("area_incident_chart", @area_incidents_chart) %>
+        </div>
+        <div class="col-sm-6">
+          <%= high_chart("program_incident_chart", @program_incidents_chart)  %>
         </div>
       </div>
     </div>
