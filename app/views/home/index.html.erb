@@ -1,4 +1,20 @@
-<%= high_chart("my_id4", @chart1) do |c| %>
-  <%= raw "options.tooltip.formatter = function() {return this.point.name + ' - ' + this.y +' %';}"  %>
-  <%= raw "options.plotOptions.pie.dataLabels.formatter = function() { if (this.y > 5) return this.point.name; }"  %>
-<% end %>
+<div class='col-md-10 col-md-offset-1'>
+  <div class='panel panel-default'>
+    <div class='panel-body'>
+      <div class="row">
+        <div class="col-sm-6">
+          <%= high_chart("incident_chart", @incidents_chart) do |c| %>
+            <%= raw "options.tooltip.formatter = function() {return this.point.name + ' - ' + this.y;}"  %>
+            <%= raw "options.plotOptions.pie.dataLabels.formatter = function() { if (this.y > 5) return this.point.name; }"  %>
+          <% end %>
+        </div>
+        <div class="col-sm-6">
+          <%= high_chart("user_chart", @users_chart) do |c| %>
+            <%= raw "options.tooltip.formatter = function() {return this.point.name + ' - ' + this.y;}"  %>
+            <%= raw "options.plotOptions.pie.dataLabels.formatter = function() { if (this.y > 5) return this.point.name; }"  %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

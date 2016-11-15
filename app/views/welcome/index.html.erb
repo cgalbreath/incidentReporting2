@@ -1,4 +1,0 @@
-<%= high_chart("my_id4", @chart1) do |c| %>
-  <%= raw "options.tooltip.formatter = function() {return this.point.name + ' - ' + this.y +' %';}"  %>
-  <%= raw "options.plotOptions.pie.dataLabels.formatter = function() { if (this.y > 5) return this.point.name; }"  %>
-<% end %>
