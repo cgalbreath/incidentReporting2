@@ -12,4 +12,16 @@ class Incident < ActiveRecord::Base
 	accepts_nested_attributes_for :thefts, :allow_destroy => true
 	accepts_nested_attributes_for :vehicle_accidents, :allow_destroy => true
 	accepts_nested_attributes_for :property_damages, :allow_destroy => true
+
+	ransacker :id do
+	  Arel::Nodes::SqlLiteral.new("substring(CAST(#{table_name}.id as CHAR(12)),length(id))")
+	end
+
+	ransacker :area_id do
+	  Arel::Nodes::SqlLiteral.new("substring(CAST(#{table_name}.area_id as CHAR(12)),length(area_id))")
+	end
+
+	ransacker :program_id do
+	  Arel::Nodes::SqlLiteral.new("substring(CAST(#{table_name}.program_id as CHAR(12)),length(program_id))")
+	end
 end

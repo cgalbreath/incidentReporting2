@@ -2,7 +2,7 @@
 <div class="row">
 	<div class="col-sm-12">
 		<div class="form-group">
-			<%= ff.label :prop_description, "What was damaged?", :class => "control-label" %>
+			<%= ff.label :prop_description, "Property Damages:", :class => "control-label" %>
 			<%= ff.text_area :prop_description, :class => "form-control", :rows => "3" %>
 		</div>
 	</div>
@@ -11,7 +11,7 @@
 <div class="row">
 	<div class="col-sm-12">
 		<div class="form-group">
-			<%= ff.label :prop_occurance, "How did it happen?", :class => "control-label" %>
+			<%= ff.label :prop_occurance, "How Property was Damaged:", :class => "control-label" %>
 			<%= ff.text_area :prop_occurance, :class => "form-control", :rows => "3" %>
 		</div>
 	</div>
@@ -46,7 +46,7 @@
 	</div>
 	<div class="col-sm-1">
 		<div class="form-group">
-			<%= ff.label :prop_members_involved, :class => "control-label" %>
+			<%= ff.label :prop_members_involved, "Members Involved?",:class => "control-label" %>
 			<%= ff.check_box :prop_members_involved, :class => "form-control" %>
 		</div>
 	</div>
@@ -56,7 +56,7 @@
 	<div class="row">
 		<div class="col-sm-12">
 			<div class="form-group">
-				<%= ff.label :prop_emergency_detail, :class => "control-label" %>
+				<%= ff.label :prop_emergency_detail, "Police Report Info:", :class => "control-label" %>
 				<%= ff.text_area :prop_emergency_detail, :class => "form-control", :rows => "3" %>
 			</div>
 		</div>
@@ -67,7 +67,7 @@
 	<div class="row">
 		<div class="col-sm-12">
 			<div class="form-group">
-				<%= ff.label :prop_insurance_filed_detail, :class => "control-label" %>
+				<%= ff.label :prop_insurance_filed_detail, "Insurance Claim Info:", :class => "control-label" %>
 				<%= ff.text_area :prop_insurance_filed_detail, :class => "form-control", :rows => "3" %>
 			</div>
 		</div>
@@ -78,7 +78,7 @@
 	<div class="row">
 		<div class="col-sm-12">
 			<div class="form-group">
-				<%= ff.label :prop_members_involved_detail, "Who was involved?", :class => "control-label" %>
+				<%= ff.label :prop_members_involved_detail, "Members:", :class => "control-label" %>
 				<%= ff.text_area :prop_members_involved_detail, :class => "form-control", :rows => "3" %>
 			</div>
 		</div>
@@ -97,7 +97,7 @@
 
 <script type="text/javascript">
 	$(document).ready(function(){
-		$('#prop_damage_incident_detail_members_involved').change(function() {
+		$('#incident_property_damages_attributes_0_prop_members_involved').change(function() {
 			if ( $(this).is(':checked') )
 			{
 	        	$("div#prop_damage_incident_detail_members").show();
@@ -108,7 +108,7 @@
 	        }
 	    }).trigger('change');
 	    
-		$('#prop_damage_incident_detail_emergency_notified').change(function() {
+		$('#incident_property_damages_attributes_0_prop_emergency_notified').change(function() {
 			if ( $(this).is(':checked') )
 			{
 	        	$("div#prop_damage_incident_detail_emergency_info").show();
@@ -118,7 +118,7 @@
 	        	$("div#prop_damage_incident_detail_emergency_info").hide();
 	        }
 	    }).trigger('change');
-	    $('#prop_damage_incident_detail_insurance_filed').change(function() {
+	    $('#incident_property_damages_attributes_0_prop_insurance_filed').change(function() {
 			if ( $(this).is(':checked') )
 			{
 	        	$("div#prop_damage_incident_detail_insurance_info").show();

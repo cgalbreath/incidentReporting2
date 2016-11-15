@@ -2,13 +2,13 @@
 <div class="row">
 	<div class="col-sm-6">
 	      <div class="form-group">
-			<%= injury_builder.label :injury_involved_type_id, :class => "control-label" %>
+			<%= injury_builder.label :injury_involved_type_id, "Invovled Type:", :class => "control-label" %>
 	        <%= injury_builder.select :injury_involved_type_id, InvolvedType.all.collect {|p| [ p.name, p.id ] }, { include_blank: true }, {:class => 'form-control'} %>
 		</div>
 	</div>
 	<div class="col-sm-6">
 	      <div class="form-group">
-			<%= injury_builder.label :injury_involved_name, :class => "control-label" %>
+			<%= injury_builder.label :injury_involved_name, "Involved Name:", :class => "control-label" %>
 	        <%= injury_builder.text_field :injury_involved_name, :class => "form-control" %>
 		</div>
 	</div>
@@ -16,7 +16,7 @@
 <div class="row">
 	<div class="col-sm-12">
 		<div class="form-group">
-			<%= injury_builder.label :injury_description, "Injury Description", :class => "control-label" %>
+			<%= injury_builder.label :injury_description, "Injury Description:", :class => "control-label" %>
 			<%= injury_builder.text_area :injury_description, :class => "form-control", :rows => "3" %>
 		</div>
 	</div>
@@ -31,21 +31,23 @@
 </div>
 <div class="row">
 	<div class="col-sm-1">
-			<%= injury_builder.label :injury_guardian_notified, :class => "control-label" %>
+	</div>
+	<div class="col-sm-1">
+			<%= injury_builder.label :injury_guardian_notified, "Parent notified", :class => "control-label" %>
 	        <%= injury_builder.check_box :injury_guardian_notified, :class => "form-control" %>
 	</div>
 </div>
-<div id="injury_incident_detail_guardian_info">
+<div id="incident_injuries_guardian_info">
 	<div class="row">
 		<div class="col-sm-6">
 			<div class="form-group">
-				<%= injury_builder.label :injury_guardian_name, :class => "control-label" %>
+				<%= injury_builder.label :injury_guardian_name, "Parent Name", :class => "control-label" %>
 		        <%= injury_builder.text_field :injury_guardian_name, :class => "form-control" %>
 			</div>
 		</div>
 		<div class="col-sm-6">
 			<div class="form-group">
-				<%= injury_builder.label :injury_guardian_number, :class => "control-label" %>
+				<%= injury_builder.label :injury_guardian_number, "Parent Number", :class => "control-label" %>
 		        <%= injury_builder.text_field :injury_guardian_number, :class => "form-control" %>
 			</div>
 		</div>
@@ -63,14 +65,14 @@
 
 <script type="text/javascript">
 	$(document).ready(function(){
-	    $('#injury_incident_detail_guardian_notified').change(function() {
+	    $('#incident_injuries_attributes_0_injury_guardian_notified').change(function() {
 			if ( $(this).is(':checked') )
 			{
-	        	$("div#injury_incident_detail_guardian_info").show();
+	        	$("div#incident_injuries_guardian_info").show();
 	        }
 	        else
 			{
-	        	$("div#injury_incident_detail_guardian_info").hide();
+	        	$("div#incident_injuries_guardian_info").hide();
 	        }
 	    }).trigger('change');
 	});

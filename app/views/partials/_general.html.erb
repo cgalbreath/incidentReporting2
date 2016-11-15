@@ -60,13 +60,13 @@
 		<div class="col-sm-6">
 			<div class="form-group">
 				<%= f.label :area_id, :class => "control-label" %>
-				<%= f.collection_select :area_id, Area.all, :id, :name, {:prompt => 'Please select an area...'}, {:class => 'form-control'} %>
+				<%= f.collection_select :area_id, Area.all, :id, :name, {include_blank: 'Please select an area...'}, {:class => 'form-control'} %>
 			</div>
 		</div>
 		<div class="col-sm-6">
 			<div class="form-group">
 				<%= f.label :program_id, :class => "control-label" %>
-				<%= f.collection_select :program_id, Program.all, :id, :name, {:prompt => 'Please select a Program...'}, {:class => 'form-control'} %>
+				<%= f.collection_select :program_id, Program.all, :id, :name, {include_blank: 'Please select a Program...'}, {:class => 'form-control'} %>
 			</div>
 		</div>
 	</div>
@@ -86,7 +86,7 @@
 	<div class="col-md-4">
 		<div class="form-group">
 			<%= f.label :severity_level_id, :class => "control-label" %>
-			<%= f.collection_select :severity_level_id, SeverityLevel.all, :id, :name, {:prompt => 'Please select a Program...'}, {:class => 'form-control'} %>
+			<%= f.collection_select :severity_level_id, SeverityLevel.all, :id, :name, {:prompt => 'Severity...'}, {:class => 'form-control'} %>
 		</div>
 	</div>
 </div>

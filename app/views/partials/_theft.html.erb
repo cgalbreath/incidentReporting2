@@ -47,7 +47,7 @@
 	<div class="row">
 		<div class="col-sm-12">
 			<div class="form-group">
-				<%= ff.label :theft_emergency_detail, :class => "control-label" %>
+				<%= ff.label :theft_emergency_detail, "Police Report Info:", :class => "control-label" %>
 				<%= ff.text_area :theft_emergency_detail, :class => "form-control", :rows => "3" %>
 			</div>
 		</div>
@@ -58,7 +58,7 @@
 	<div class="row">
 		<div class="col-sm-12">
 			<div class="form-group">
-				<%= ff.label :theft_insurance_filed_detail, :class => "control-label" %>
+				<%= ff.label :theft_insurance_filed_detail, "Insurance Claim Info:", :class => "control-label" %>
 				<%= ff.text_area :theft_insurance_filed_detail, :class => "form-control", :rows => "3" %>
 			</div>
 		</div>
@@ -70,7 +70,7 @@
 	</div>
 	<div class="col-sm-1">
 		<div class="form-group">
-			<%= ff.label :theft_members_involved, :class => "control-label" %>
+			<%= ff.label :theft_members_involved, "Members Involved?", :class => "control-label" %>
 			<%= ff.check_box :theft_members_involved, :class => "form-control" %>
 		</div>
 	</div>
@@ -82,7 +82,7 @@
 	</div>
 	<div class="col-sm-1">
 		<div class="form-group">
-			<%= ff.label :theft_staff_involved, :class => "control-label" %>
+			<%= ff.label :theft_staff_involved, "Staff Involved?", :class => "control-label" %>
 			<%= ff.check_box :theft_staff_involved, :class => "form-control" %>
 		</div>
 	</div>
@@ -94,7 +94,7 @@
 	</div>
 	<div class="col-sm-1">
 		<div class="form-group">
-			<%= ff.label :theft_other_involved, :class => "control-label" %>
+			<%= ff.label :theft_other_involved, "Others Involved?", :class => "control-label" %>
 			<%= ff.check_box :theft_other_involved, :class => "form-control" %>
 		</div>
 	</div>
@@ -104,7 +104,7 @@
 	<div class="row">
 		<div class="col-sm-12">
 			<div class="form-group">
-				<%= ff.label :theft_members_involved_detail, "Members involved?", :class => "control-label" %>
+				<%= ff.label :theft_members_involved_detail, "Members:", :class => "control-label" %>
 				<%= ff.text_area :theft_members_involved_detail, :class => "form-control", :rows => "3" %>
 			</div>
 		</div>
@@ -115,7 +115,7 @@
 	<div class="row">
 		<div class="col-sm-12">
 			<div class="form-group">
-				<%= ff.label :theft_staff_involved_detail, "Staff involved?", :class => "control-label" %>
+				<%= ff.label :theft_staff_involved_detail, "Staff:", :class => "control-label" %>
 				<%= ff.text_area :theft_staff_involved_detail, :class => "form-control", :rows => "3" %>
 			</div>
 		</div>
@@ -126,7 +126,7 @@
 	<div class="row">
 		<div class="col-sm-12">
 			<div class="form-group">
-				<%= ff.label :theft_other_involved_detail, "Other involved?", :class => "control-label" %>
+				<%= ff.label :theft_other_involved_detail, "Others:", :class => "control-label" %>
 				<%= ff.text_area :theft_other_involved_detail, :class => "form-control", :rows => "3" %>
 			</div>
 		</div>
@@ -137,7 +137,7 @@
 <script type="text/javascript">
 	$(document).ready(function(){
 	    
-		$('#theft_incident_detail_emergency_notified').change(function() {
+		$('#incident_thefts_attributes_0_theft_emergency_notified').change(function() {
 			if ( $(this).is(':checked') )
 			{
 	        	$("div#theft_incident_detail_emergency_info").show();
@@ -148,7 +148,7 @@
 	        }
 	    }).trigger('change');
 
-	    $('#theft_incident_detail_insurance_filed').change(function() {
+	    $('#incident_thefts_attributes_0_theft_insurance_filed').change(function() {
 			if ( $(this).is(':checked') )
 			{
 	        	$("div#theft_incident_detail_insurance_info").show();
@@ -159,7 +159,7 @@
 	        }
 	    }).trigger('change');
 
-	    $('#theft_incident_detail_members_involved').change(function() {
+	    $('#incident_thefts_attributes_0_theft_members_involved').change(function() {
 			if ( $(this).is(':checked') )
 			{
 	        	$("div#theft_incident_detail_members").show();
@@ -170,7 +170,7 @@
 	        }
 	    }).trigger('change');
 
-	    $('#theft_incident_detail_staff_involved').change(function() {
+	    $('#incident_thefts_attributes_0_theft_staff_involved').change(function() {
 			if ( $(this).is(':checked') )
 			{
 	        	$("div#theft_incident_detail_staff").show();
@@ -181,7 +181,7 @@
 	        }
 	    }).trigger('change');
 
-	    $('#theft_incident_detail_other_involved').change(function() {
+	    $('#incident_thefts_attributes_0_theft_other_involved').change(function() {
 			if ( $(this).is(':checked') )
 			{
 	        	$("div#theft_incident_detail_other").show();

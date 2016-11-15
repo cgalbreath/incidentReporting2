@@ -1,4 +1,88 @@
 <div class='col-md-10 col-md-offset-1'>
+  <div class='panel panel-default'>
+    <div class='panel-body'>
+      <%= search_form_for @q, url: search_reports_path, html: { method: :post }  do |f| %>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <%= f.label :date_reported_gteq, "Reported: Greater than Date", :class => "control-label" %>
+              <div class='input-group date' id='date_reported_gteq'>
+                <%= f.text_field :date_reported_gteq, :class => "form-control", "data-provide" => 'datepicker' %>
+                <span class="input-group-addon">
+                <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <%= f.label :date_reported_lteq, "Reported: Less than Date", :class => "control-label" %>
+              <div class='input-group date' id='date_reported_lteq'>
+                <%= f.text_field :date_reported_lteq, :class => "form-control", "data-provide" => 'datepicker' %>
+                <span class="input-group-addon">
+                <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+              </div>
+            </div> 
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <%= f.label :date_of_incident_gteq, "Incident: Greater than Date", :class => "control-label" %>
+              <div class='input-group date' id='date_of_incident_gteq'>
+                <%= f.text_field :date_of_incident_gteq, :class => "form-control", "data-provide" => 'datepicker' %>
+                <span class="input-group-addon">
+                <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <%= f.label :date_of_incident_lteq, "Incident: Less than Date", :class => "control-label" %>
+              <div class='input-group date' id='date_of_incident_lteq'>
+                <%= f.text_field :date_of_incident_lteq, :class => "form-control", "data-provide" => 'datepicker' %>
+                <span class="input-group-addon">
+                <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+              </div>
+            </div> 
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <%= f.label :reporter_cont, "Reporter Contains", :class => "control-label" %>
+              <%= f.text_field :reporter_cont, :class => "form-control" %>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <%= f.label :witness_cont, "Witness Contains", :class => "control-label" %>
+              <%= f.text_field :witness_cont, :class => "form-control" %>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <%= f.label :area_id_cont, :class => "control-label" %>
+              <%= f.collection_select :area_id_cont, Area.all, :id, :name, {include_blank: 'Please select an area...'}, {:class => 'form-control'} %>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <%= f.label :program_id_cont, :class => "control-label" %>
+              <%= f.collection_select :program_id_cont, Program.all, :id, :name, {include_blank: 'Please select a Program...'}, {:class => 'form-control'} %>
+            </div>
+          </div>
+        </div>  
+        <div class="actions"><%= f.submit "Search" %></div>
+      <% end %>
+    </div>
+  </div>
+
   <h2>Report Generation</h2>
   <hr>
   <div class='panel panel-default'>
@@ -7,7 +91,7 @@
         <table class="table table-hover table-striped table-bordered">
           <thead>
             <tr>
-              <th>ID</th>
+              <th><%= sort_link @search, :id, "ID" %></th>
               <th><%= sort_link @search, :date_reported, "Recorded Date" %></th>
               <th><%= sort_link @search, :date_of_incident, "Incident Date" %></th>
               <th><%= sort_link @search, :reporter, "Reporter" %></th>

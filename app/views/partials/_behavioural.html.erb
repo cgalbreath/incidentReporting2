@@ -2,13 +2,13 @@
 <div class="row">
 	<div class="col-sm-6">
 	      <div class="form-group">
-			<%= ff.label :behav_involved_type_id, :class => "control-label" %>
+			<%= ff.label :behav_involved_type_id, "Involved Type:", :class => "control-label" %>
 	        <%= ff.select :behav_involved_type_id, InvolvedType.all.collect {|p| [ p.name, p.id ] }, { include_blank: true }, {:class => 'form-control'} %>
 		</div>
 	</div>
 	<div class="col-sm-6">
 	      <div class="form-group">
-			<%= ff.label :behav_involved_name, :class => "control-label" %>
+			<%= ff.label :behav_involved_name, "Involved Name:", :class => "control-label" %>
 	        <%= ff.text_field :behav_involved_name, :class => "form-control" %>
 		</div>
 	</div>
@@ -16,7 +16,7 @@
 <div class="row">
 	<div class="col-sm-12">
 		<div class="form-group">
-			<%= ff.label :behav_description, :class => "control-label" %>
+			<%= ff.label :behav_description, "Behavioural Description:", :class => "control-label" %>
 			<%= ff.text_area :behav_description, :class => "form-control", :rows => "3" %>
 		</div>
 	</div>
@@ -24,7 +24,9 @@
 
 <div class="row">
 	<div class="col-sm-1">
-			<%= ff.label :behav_guardian_notified, :class => "control-label" %>
+	</div>
+	<div class="col-sm-1">
+			<%= ff.label :behav_guardian_notified, "Parent Notified",:class => "control-label" %>
 	        <%= ff.check_box :behav_guardian_notified, :class => "form-control" %>
 	</div>
 </div>
@@ -32,13 +34,13 @@
 	<div class="row">
 		<div class="col-sm-6">
 			<div class="form-group">
-				<%= ff.label :behav_guardian_name, :class => "control-label" %>
+				<%= ff.label :behav_guardian_name, "Parent Name",:class => "control-label" %>
 		        <%= ff.text_field :behav_guardian_name, :class => "form-control" %>
 			</div>
 		</div>
 		<div class="col-sm-6">
 			<div class="form-group">
-				<%= ff.label :behav_guardian_number, :class => "control-label" %>
+				<%= ff.label :behav_guardian_number,"Parent Number", :class => "control-label" %>
 		        <%= ff.text_field :behav_guardian_number, :class => "form-control" %>
 			</div>
 		</div>
@@ -68,7 +70,7 @@
 	</div>
 	<div class="col-sm-1">
 		<div class="form-group">
-			<%= ff.label :behav_members_involved, :class => "control-label" %>
+			<%= ff.label :behav_members_involved, "Members Involved?", :class => "control-label" %>
 			<%= ff.check_box :behav_members_involved, :class => "form-control" %>
 		</div>
 	</div>
@@ -80,7 +82,7 @@
 	</div>
 	<div class="col-sm-1">
 		<div class="form-group">
-			<%= ff.label :behav_staff_involved, :class => "control-label" %>
+			<%= ff.label :behav_staff_involved, "Staff Involved?", :class => "control-label" %>
 			<%= ff.check_box :behav_staff_involved, :class => "form-control" %>
 		</div>
 	</div>
@@ -92,7 +94,7 @@
 	</div>
 	<div class="col-sm-1">
 		<div class="form-group">
-			<%= ff.label :behav_other_involved, :class => "control-label" %>
+			<%= ff.label :behav_other_involved, "Other Involved?", :class => "control-label" %>
 			<%= ff.check_box :behav_other_involved, :class => "form-control" %>
 		</div>
 	</div>
@@ -102,7 +104,7 @@
 	<div class="row">
 		<div class="col-sm-12">
 			<div class="form-group">
-				<%= ff.label :behav_members_involved_detail, "Who was involved?", :class => "control-label" %>
+				<%= ff.label :behav_members_involved_detail, "Members:", :class => "control-label" %>
 				<%= ff.text_area :behav_members_involved_detail, :class => "form-control", :rows => "3" %>
 			</div>
 		</div>
@@ -113,7 +115,7 @@
 	<div class="row">
 		<div class="col-sm-12">
 			<div class="form-group">
-				<%= ff.label :behav_staff_involved_detail, "Who was involved?", :class => "control-label" %>
+				<%= ff.label :behav_staff_involved_detail, "Staff:", :class => "control-label" %>
 				<%= ff.text_area :behav_staff_involved_detail, :class => "form-control", :rows => "3" %>
 			</div>
 		</div>
@@ -124,7 +126,7 @@
 	<div class="row">
 		<div class="col-sm-12">
 			<div class="form-group">
-				<%= ff.label :behav_other_involved_detail, "Who was involved?", :class => "control-label" %>
+				<%= ff.label :behav_other_involved_detail, "Others:", :class => "control-label" %>
 				<%= ff.text_area :behav_other_involved_detail, :class => "form-control", :rows => "3" %>
 			</div>
 		</div>
@@ -134,7 +136,7 @@
 
 <script type="text/javascript">
 	$(document).ready(function(){
-	    $('#behavioural_incident_detail_members_involved').change(function() {
+	    $('#incident_behaviourals_attributes_0_behav_members_involved').change(function() {
 			if ( $(this).is(':checked') )
 			{
 	        	$("div#behavioural_incident_detail_members").show();
@@ -145,7 +147,7 @@
 	        }
 	    }).trigger('change');
 
-	    $('#behavioural_incident_detail_staff_involved').change(function() {
+	    $('#incident_behaviourals_attributes_0_behav_staff_involved').change(function() {
 			if ( $(this).is(':checked') )
 			{
 	        	$("div#behavioural_incident_detail_staff").show();
@@ -156,7 +158,7 @@
 	        }
 	    }).trigger('change');
 
-	    $('#behavioural_incident_detail_other_involved').change(function() {
+	    $('#incident_behaviourals_attributes_0_behav_other_involved').change(function() {
 			if ( $(this).is(':checked') )
 			{
 	        	$("div#behavioural_incident_detail_other").show();
@@ -167,7 +169,7 @@
 	        }
 	    }).trigger('change');
 
-	    $('#behavioural_incident_detail_guardian_notified').change(function() {
+	    $('#incident_behaviourals_attributes_0_behav_guardian_notified').change(function() {
 			if ( $(this).is(':checked') )
 			{
 	        	$("div#behavioural_incident_detail_guardian_info").show();
