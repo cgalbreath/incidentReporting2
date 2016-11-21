@@ -22,4 +22,14 @@ class Users::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
+
+  #configure auto_session_timeout
+  def active
+    render_session_status
+  end
+
+  def timeout
+    redirect_to root_path, notice: "Your session has timed out."
+  end
+
 end

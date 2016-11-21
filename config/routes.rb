@@ -1,9 +1,16 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: {
+  devise_for :users, :path => 'auth', controllers: {
     sessions: 'users/sessions',
     registrations: 'users/registrations',
     invitations: 'users/invitations'
   }
+
+
+devise_scope :user do
+  match 'active'  => 'users/sessions#active',  via: :get
+  match 'timeout' => 'users/sessions#timeout', via: :get
+end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

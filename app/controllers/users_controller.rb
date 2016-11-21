@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 
   before_filter :authenticate_user!, :check_if_admin
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :configure_permitted_parameters, if: :devise_controller?
 
   def check_if_admin
     return unless !current_user.admin?
@@ -10,7 +11,6 @@ class UsersController < ApplicationController
 
   def index
     add_breadcrumb "Users", :users_path
-    # UserMailer.sample_email(User.first).deliver_now
   	@users = User.paginate(:page => params[:page], :per_page => 10)
   end
 
@@ -57,6 +57,12 @@ class UsersController < ApplicationController
     end
   end
 
+protected
+
+def configure_permitted_parameters
+  devise_parameter_sanitizer.permit(:accept_invitation, keys: [:first_name, :last_name, :phone])
+end
+
 private
 
   def set_user
@@ -67,7 +73,6 @@ private
     params.require(:user).permit(:username,
                                  :email,
                                  :admin,
-                                 :password,
                                  {:facility_id => []},
                                  {:program_id => []},
                                  :first_name,

@@ -1,4 +1,3 @@
-
 <%= nested_form_for(@facility, remote: true, :html => { :role => "form" }) do |f| %>
   <div id="error_explanation" class="bg-danger text-danger">
 
@@ -23,18 +22,22 @@
   </div>
 
   <div class="row">
-    <div class="col-sm-6">
-      <div class="form-group">
-        <%= f.label :areas, :class => "control-label" %>
-        <%= f.select :areas, options_for_select(Area.all.collect {|p| [ p.name, p.id ] }, @facility.areas), { :include_hidden => false }, {:multiple => true, :class => 'form-control', :size =>10 } %>
-      </div>  
-    </div>
-    <div class="col-sm-6">
-      <div class="form-group">
-        <%= f.label :programs, :class => "control-label" %>
-        <%= f.select :programs, options_for_select(Program.all.collect {|p| [ p.name, p.id ] }, @facility.programs), { :include_hidden => false }, {:multiple => true, :class => 'form-control', :size =>10 } %>
-      </div>  
-    </div>
+    <%= fields_for(:facility_areas) do |fa| %>
+      <div class="col-sm-6">
+        <div class="form-group">
+          <%= fa.label "Areas" %>
+          <%= collection_select(:areas, :id, Area.all, :id, :name, {:selected => @area_select}, {:multiple => true, :class => 'form-control', :size =>10 }) %>
+        </div>  
+      </div>
+    <% end %>
+    <%= fields_for(:facility_programs) do |fp| %>
+      <div class="col-sm-6">
+        <div class="form-group">
+          <%= fp.label "Programs" %>
+          <%= collection_select(:programs, :id, Program.all, :id, :name, {:selected => @program_select}, {:multiple => true, :class => 'form-control', :size =>10 } ) %>
+        </div>  
+      </div>
+    <% end %>
   </div>
 
   <div class="row">

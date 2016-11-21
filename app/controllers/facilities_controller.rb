@@ -20,6 +20,18 @@ class FacilitiesController < ApplicationController
   def create
     @facility = Facility.create(facility_params)
 
+    params[:areas][:id].each do |area|
+      if !area.empty?
+        @facility.facility_areas.build(:area_id => area)
+      end
+    end
+
+    params[:programs][:id].each do |program|
+      if !program.empty?
+        @facility.facility_programs.build(:program_id => program)
+      end
+    end
+
     respond_to do |format|
       if @facility.save
         format.json { head :no_content }
@@ -32,10 +44,24 @@ class FacilitiesController < ApplicationController
   end
 
   def edit
-
+    @area_select = FacilityArea.where(facility_id: @facility.id).pluck(:area_id)
+    @program_select = FacilityProgram.where(facility_id: @facility.id).pluck(:program_id)
   end
 
   def update
+
+    params[:areas][:id].each do |area|
+      if !area.empty?
+        @facility.facility_areas.build(:area_id => area)
+      end
+    end
+
+    params[:programs][:id].each do |program|
+      if !program.empty?
+        @facility.facility_programs.build(:program_id => program)
+      end
+    end
+
     respond_to do |format|
       if @facility.update(facility_params)
         format.json { head :no_content }
@@ -63,9 +89,6 @@ private
   end
 
   def facility_params
-    params.require(:facility).permit(:name,
-                                     :address,
-                                     {:areas => []},
-                                     {:programs => []})
+    params.require(:facility).permit!
   end
 end

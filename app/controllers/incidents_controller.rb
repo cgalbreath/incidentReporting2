@@ -31,7 +31,6 @@ class IncidentsController < ApplicationController
     @incident.property_damages.build
     @incident.behaviourals.build
     @incident.misconducts.build
-    @facility = Facility.first
     @sysDateTime = DateTime.current().strftime("%m/%d/%Y %I:%M %p")
   end
 
@@ -50,7 +49,26 @@ class IncidentsController < ApplicationController
   end
 
   def edit
+    @injuries = Injury.where(incident_id: 1)
     @sysDateTime = @incident.date_reported
+    if Injury.where(incident_id: @incident.id).empty?
+      @incident.injuries.build
+    end
+    if Theft.where(incident_id: @incident.id).empty?
+      @incident.thefts.build  
+    end
+    if VehicleAccident.where(incident_id: @incident.id).empty?
+      @incident.vehicle_accidents.build  
+    end
+    if PropertyDamage.where(incident_id: @incident.id).empty?
+      @incident.property_damages.build  
+    end
+    if Behavioural.where(incident_id: @incident.id).empty?
+      @incident.behaviourals.build  
+    end
+    if Misconduct.where(incident_id: @incident.id).empty?
+      @incident.misconducts.build
+    end
   end
 
   def update

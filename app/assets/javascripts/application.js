@@ -14,6 +14,7 @@
 //= require jquery.turbolinks
 //= require jquery_ujs
 //= require jquery_nested_form
+//= require jquery-periodicalupdater
 //= require bootstrap-sprockets
 //= require moment  
 //= require bootstrap-datetimepicker

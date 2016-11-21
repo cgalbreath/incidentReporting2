@@ -18,6 +18,7 @@ gem 'momentjs-rails', '>= 2.9.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.17.37'
 gem "nested_form"
 gem 'will_paginate-bootstrap'
+gem 'auto-session-timeout'
 gem 'devise'
 gem 'devise_invitable'
 gem 'phonelib'

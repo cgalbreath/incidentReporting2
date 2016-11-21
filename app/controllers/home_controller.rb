@@ -9,12 +9,12 @@ class HomeController < ApplicationController
                :type=> 'pie',
                :name=> 'Browser share',
                :data=> [
-                  ['Injuries',   Injury.where.not(:injury_description => '').count],
-                  ['Behaviourals',   Behavioural.where.not(:behav_description => '').count],
-                  ['Misconducts',   Misconduct.where.not(:misconduct_description => '').count],
-                  ['Property Damages',   PropertyDamage.where.not(:prop_description => '').count],
-                  ['Thefts',   Theft.where.not(:theft_description => '').count],
-                  ['Vehicle Accident',   VehicleAccident.where.not(:veh_description => '').count]
+                  ['Injuries',   Injury.count],
+                  ['Behaviourals',   Behavioural.count],
+                  ['Misconducts',   Misconduct.count],
+                  ['Property Damages',   PropertyDamage.count],
+                  ['Thefts',   Theft.count],
+                  ['Vehicle Accident',   VehicleAccident.count]
                ]
       }
       f.series(series)
