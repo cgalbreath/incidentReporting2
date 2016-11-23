@@ -60,13 +60,13 @@
 		<div class="col-sm-6">
 			<div class="form-group">
 				<%= f.label :area_id, :class => "control-label" %>
-				<%= f.collection_select :area_id, Area.all, :id, :name, {include_blank: 'Please select an area...'}, {:class => 'form-control'} %>
+				<%= f.grouped_collection_select :area_id, Facility.all, :areas,  :name, :id, :name, {}, {:class => 'form-control'} %>
 			</div>
 		</div>
 		<div class="col-sm-6">
 			<div class="form-group">
 				<%= f.label :program_id, :class => "control-label" %>
-				<%= f.collection_select :program_id, Program.all, :id, :name, {include_blank: 'Please select a Program...'}, {:class => 'form-control'} %>
+				<%= f.grouped_collection_select :program_id, Facility.all, :programs, :name, :id, :name, {}, {:class => 'form-control'} %>
 			</div>
 		</div>
 	</div>
@@ -98,3 +98,25 @@
 		</div>
 	</div>
 </div>
+
+<script>
+	areas = $('#incident_area_id').html();
+	programs = $('#incident_program_id').html();
+	$('#incident_facility_id').on('change', function() {
+		facility = $('#incident_facility_id :selected').text();
+		area_options = $(areas).filter('optgroup[label="#facility"]'.replace('#facility', facility)).html();
+		program_options = $(programs).filter('optgroup[label="#facility"]'.replace('#facility', facility)).html();
+		if (area_options) {
+			$('#incident_area_id').html(area_options);
+		}
+		else {
+			$('#incident_area_id').empty();
+		}
+		if (program_options) {
+			$('#incident_program_id').html(program_options);
+		}
+		else {
+			$('#incident_program_id').empty();
+		}
+	}).trigger('change');
+</script>
