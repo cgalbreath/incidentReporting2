@@ -70,13 +70,10 @@ private
   end
 
   def user_params
-    params.require(:user).permit(:username,
-                                 :email,
+    params.require(:user).permit(:email,
                                  :admin,
                                  {:facility_id => []},
-                                 {:program_id => []},
-                                 :first_name,
-                                 :last_name,
-                                 :phone)
+                                 {:program_id => []}
+                                 )
   end
 end

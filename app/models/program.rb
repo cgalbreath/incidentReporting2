@@ -1,3 +1,4 @@
 class Program < ActiveRecord::Base
-	belongs_to :facility, polymorphic: true
+	has_many :facility_programs, dependent: :destroy
+	has_many :facilities, through: :facility_programs
 end

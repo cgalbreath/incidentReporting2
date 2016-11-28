@@ -15,19 +15,8 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-        <%= render 'shared/pageheading' %>
-        <% if user_signed_in? %>       
-          <%= yield %>
-        <% else %>
-          <div class='col-md-10 col-md-offset-1'>
-            <div class='panel panel-default'>
-              <div class='panel-body'>
-                <h3>Welcome to Incident Reporting</h3>
-                Please login
-              </div>
-            </div>
-          </div>
-        <% end %>
+        <%= render 'shared/pageheading' %>    
+        <%= yield %>  
       </div>
     </div>
   </div>

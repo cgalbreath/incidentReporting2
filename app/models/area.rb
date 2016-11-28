@@ -1,3 +1,4 @@
 class Area < ActiveRecord::Base
-	belongs_to :facility, polymorphic: true
+	has_many :facility_areas, dependent: :destroy
+	has_many :facilities, through: :facility_areas
 end

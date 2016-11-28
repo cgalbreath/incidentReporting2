@@ -49,7 +49,9 @@ class FacilitiesController < ApplicationController
   end
 
   def update
-
+    FacilityArea.destroy_all(facility_id: @facility.id)
+    FacilityProgram.destroy_all(facility_id: @facility.id)
+    
     params[:areas][:id].each do |area|
       if !area.empty?
         @facility.facility_areas.build(:area_id => area)

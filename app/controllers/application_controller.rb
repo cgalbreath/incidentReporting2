@@ -8,4 +8,8 @@ class ApplicationController < ActionController::Base
   def set_global_search_variable
     @q = Incident.search(params[:q])
   end
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:email, :password, :password_confirmation, :current_password)}
+  end
 end

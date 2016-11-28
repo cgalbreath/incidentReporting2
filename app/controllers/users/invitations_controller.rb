@@ -32,4 +32,10 @@ class Users::InvitationsController < Devise::InvitationsController
       u.skip_invitation = true
     end
   end
+
+  private
+
+  def update_resource_params
+    params.require(:user).permit(:password, :password_confirmation, :username, :first_name, :last_name, :phone, :invitation_token)
+  end
 end
