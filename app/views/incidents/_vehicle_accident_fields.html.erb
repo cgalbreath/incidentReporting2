@@ -1,0 +1,171 @@
+<div class="panel panel-default">
+	<div class="panel-heading">Vehicle Accident - <%= @incident.id %></div>
+	<div class="panel-body">
+		<div class="row">
+			<div class="col-sm-6">
+			      <div class="form-group">
+					<%= f.label :veh_ownership_id, "Vehicle Owner", :class => "control-label" %>
+			        <%= f.select :veh_ownership_id, VehicleOwnership.all.collect {|p| [ p.name, p.id ] }, { include_blank: true }, {:class => 'form-control'} %>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="form-group">
+					<%= f.label :veh_description, "Accident Description:", :class => "control-label" %>
+					<%= f.text_area :veh_description, :class => "form-control", :rows => "3" %>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-12">
+			      <div class="form-group">
+					<%= f.label :veh_car_description, "Vehicle Description:", :class => "control-label" %>
+			        <%= f.text_area :veh_car_description, :class => "form-control", :rows => "3" %>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-sm-1">
+			</div>
+			<div class="col-sm-1">
+				<div class="form-group">
+					<%= f.label :veh_members_involved, "Members Involved?", :class => "control-label" %>
+					<%= f.check_box :veh_members_involved, :class => "form-control" %>
+				</div>
+			</div>
+			<div class="col-sm-1">
+			</div>
+			<div class="col-sm-1">
+				<div class="form-group">
+					<%= f.label :veh_alternative_transport, "Alternative Transport?", :class => "control-label" %>
+					<%= f.check_box :veh_alternative_transport, :class => "form-control" %>
+				</div>
+			</div>
+			<div class="col-sm-1">
+			</div>
+			<div class="col-sm-1">
+				<div class="form-group">
+					<%= f.label :veh_insurance_filed, "Insurance claim filed?", :class => "control-label" %>
+					<%= f.check_box :veh_insurance_filed, :class => "form-control" %>
+				</div>
+			</div>
+			<div class="col-sm-1">
+			</div>
+		<!-- 	<div class="col-sm-1">
+				<div class="form-group">
+					<%= f.label :veh_drug_screen, :class => "control-label" %>
+					<%= f.check_box :veh_drug_screen, :class => "form-control" %>
+				</div>
+			</div> -->
+			<div class="col-sm-1">
+			</div>
+			<div class="col-sm-1">
+				<div class="form-group">
+					<%= f.label :veh_emergency_notified, "Police Report filed?", :class => "control-label" %>
+					<%= f.check_box :veh_emergency_notified, :class => "form-control" %>
+				</div>
+			</div>
+		</div>
+		<div id="veh_accident_incident_detail_members">
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="form-group">
+						<%= f.label :veh_members_involved_detail, "Members:", :class => "control-label" %>
+						<%= f.text_area :veh_members_involved_detail, :class => "form-control", :rows => "3" %>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="veh_accident_incident_detail_alt_transport">
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="form-group">
+						<%= f.label :veh_alternative_transport_detail, "Alternative Transport Info:", :class => "control-label" %>
+						<%= f.text_area :veh_alternative_transport_detail, :class => "form-control", :rows => "3" %>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<div id="veh_accident_incident_detail_insurance_filed">
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="form-group">
+						<%= f.label :veh_insurance_filed_detail, "Insurance Claim Info:", :class => "control-label" %>
+						<%= f.text_area :veh_insurance_filed_detail, :class => "form-control", :rows => "3" %>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="veh_accident_incident_detail_emergency_info">
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="form-group">
+						<%= f.label :veh_emergency_detail, "Police Report Info:", :class => "control-label" %>
+						<%= f.text_area :veh_emergency_detail, :class => "form-control", :rows => "3" %>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="panel-footer clearfix">
+		<div class="pull-right">
+			<%= f.link_to_remove "Remove Vehicle", :class => "btn btn-danger"  %>
+		</div>
+	</div>
+</div>
+
+
+<script type="text/javascript">
+	$(document).ready(function(){
+	    $('#incident_vehicle_accidents_attributes_0_veh_members_involved').change(function() {
+			if ( $(this).is(':checked') )
+			{
+	        	$("div#veh_accident_incident_detail_members").show();
+	        }
+	        else
+			{
+	        	$("div#veh_accident_incident_detail_members").hide();
+	        }
+	    }).trigger('change');
+
+	    $('#incident_vehicle_accidents_attributes_0_veh_alternative_transport').change(function() {
+			if ( $(this).is(':checked') )
+			{
+	        	$("div#veh_accident_incident_detail_alt_transport").show();
+	        }
+	        else
+			{
+	        	$("div#veh_accident_incident_detail_alt_transport").hide();
+	        }
+	    }).trigger('change');
+
+	    $('#incident_vehicle_accidents_attributes_0_veh_insurance_filed').change(function() {
+			if ( $(this).is(':checked') )
+			{
+	        	$("div#veh_accident_incident_detail_insurance_filed").show();
+	        }
+	        else
+			{
+	        	$("div#veh_accident_incident_detail_insurance_filed").hide();
+	        }
+	    }).trigger('change');
+	    
+	    $('#incident_vehicle_accidents_attributes_0_veh_emergency_notified').change(function() {
+			if ( $(this).is(':checked') )
+			{
+	        	$("div#veh_accident_incident_detail_emergency_info").show();
+	        }
+	        else
+			{
+	        	$("div#veh_accident_incident_detail_emergency_info").hide();
+	        }
+	    }).trigger('change');
+	});
+</script>

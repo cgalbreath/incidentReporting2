@@ -1,0 +1,140 @@
+<div class="panel panel-default">
+	<div class="panel-heading">Property Damage - <%= @incident.id %></div>
+	<div class="panel-body">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="form-group">
+					<%= f.label :prop_description, "Property Damages:", :class => "control-label" %>
+					<%= f.text_area :prop_description, :class => "form-control", :rows => "3" %>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="form-group">
+					<%= f.label :prop_occurance, "How Property was Damaged:", :class => "control-label" %>
+					<%= f.text_area :prop_occurance, :class => "form-control", :rows => "3" %>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-sm-1">
+			</div>
+			<div class="col-sm-1">
+				<div class="form-group">
+					<%= f.label :prop_emergency_notified, "Police Report filed?",:class => "control-label" %>
+			        <%= f.check_box :prop_emergency_notified, :class => "form-control" %>
+				</div>
+			</div>
+			<div class="col-sm-1">
+			</div>
+			<div class="col-sm-1">
+			</div>
+			<div class="col-sm-1">
+			</div>
+			<div class="col-sm-1">
+				<div class="form-group">
+					<%= f.label :prop_insurance_filed, "Insurance claim filed?", :class => "control-label" %>
+			        <%= f.check_box :prop_insurance_filed, :class => "form-control" %>
+				</div>
+			</div>
+			<div class="col-sm-1">
+			</div>
+			<div class="col-sm-1">
+			</div>
+			<div class="col-sm-1">
+			</div>
+			<div class="col-sm-1">
+				<div class="form-group">
+					<%= f.label :prop_members_involved, "Members Involved?",:class => "control-label" %>
+					<%= f.check_box :prop_members_involved, :class => "form-control" %>
+				</div>
+			</div>
+		</div>
+
+		<div id="prop_damage_incident_detail_emergency_info">
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="form-group">
+						<%= f.label :prop_emergency_detail, "Police Report Info:", :class => "control-label" %>
+						<%= f.text_area :prop_emergency_detail, :class => "form-control", :rows => "3" %>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="prop_damage_incident_detail_insurance_info">
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="form-group">
+						<%= f.label :prop_insurance_filed_detail, "Insurance Claim Info:", :class => "control-label" %>
+						<%= f.text_area :prop_insurance_filed_detail, :class => "form-control", :rows => "3" %>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="prop_damage_incident_detail_members">
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="form-group">
+						<%= f.label :prop_members_involved_detail, "Members:", :class => "control-label" %>
+						<%= f.text_area :prop_members_involved_detail, :class => "form-control", :rows => "3" %>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="form-group">
+					<%= f.label :prop_followup, "Property disposition or closure?", :class => "control-label" %>
+					<%= f.text_area :prop_followup, :class => "form-control", :rows => "3" %>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="panel-footer clearfix">
+		<div class="pull-right">
+			<%= f.link_to_remove "Remove Property Damage", :class => "btn btn-danger"  %>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('#incident_property_damages_attributes_0_prop_members_involved').change(function() {
+			if ( $(this).is(':checked') )
+			{
+	        	$("div#prop_damage_incident_detail_members").show();
+	        }
+	        else
+			{
+	        	$("div#prop_damage_incident_detail_members").hide();
+	        }
+	    }).trigger('change');
+	    
+		$('#incident_property_damages_attributes_0_prop_emergency_notified').change(function() {
+			if ( $(this).is(':checked') )
+			{
+	        	$("div#prop_damage_incident_detail_emergency_info").show();
+	        }
+	        else
+			{
+	        	$("div#prop_damage_incident_detail_emergency_info").hide();
+	        }
+	    }).trigger('change');
+	    $('#incident_property_damages_attributes_0_prop_insurance_filed').change(function() {
+			if ( $(this).is(':checked') )
+			{
+	        	$("div#prop_damage_incident_detail_insurance_info").show();
+	        }
+	        else
+			{
+	        	$("div#prop_damage_incident_detail_insurance_info").hide();
+	        }
+	    }).trigger('change');
+	});
+</script>

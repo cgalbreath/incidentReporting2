@@ -1,0 +1,155 @@
+<div class="panel panel-default">
+	<div class="panel-heading">Injury - <%= @incident.id %></div>
+	<div class="panel-body">		
+		<div class="row">
+			<div class="col-sm-6">
+			      <div class="form-group">
+					<%= f.label :behav_involved_type_id, "Involved Type:", :class => "control-label" %>
+			        <%= f.select :behav_involved_type_id, InvolvedType.all.collect {|p| [ p.name, p.id ] }, { include_blank: true }, {:class => 'form-control'} %>
+				</div>
+			</div>
+			<div class="col-sm-6">
+			      <div class="form-group">
+					<%= f.label :behav_involved_name, "Involved Name:", :class => "control-label" %>
+			        <%= f.text_field :behav_involved_name, :class => "form-control" %>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="form-group">
+					<%= f.label :behav_description, "Behavioural Description:", :class => "control-label" %>
+					<%= f.text_area :behav_description, :class => "form-control", :rows => "3" %>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-sm-12">
+			      <div class="form-group">
+					<%= f.label :behav_counseling, "Counseling provided:", :class => "control-label" %>
+			        <%= f.text_area :behav_counseling, :class => "form-control", :rows => "3" %>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-sm-12">
+			      <div class="form-group">
+					<%= f.label :behav_followup, "What follow-up occured?", :class => "control-label" %>
+			        <%= f.text_area :behav_followup, :class => "form-control", :rows => "3" %>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-sm-1">
+			</div>
+			<div class="col-sm-1">
+				<div class="form-group">
+					<%= f.label :behav_members_involved, "Members Involved?", :class => "control-label" %>
+					<%= f.check_box :behav_members_involved, :class => "form-control" %>
+				</div>
+			</div>
+			<div class="col-sm-1">
+			</div>
+			<div class="col-sm-1">
+			</div>
+			<div class="col-sm-1">
+			</div>
+			<div class="col-sm-1">
+				<div class="form-group">
+					<%= f.label :behav_staff_involved, "Staff Involved?", :class => "control-label" %>
+					<%= f.check_box :behav_staff_involved, :class => "form-control" %>
+				</div>
+			</div>
+			<div class="col-sm-1">
+			</div>
+			<div class="col-sm-1">
+			</div>
+			<div class="col-sm-1">
+			</div>
+			<div class="col-sm-1">
+				<div class="form-group">
+					<%= f.label :behav_other_involved, "Other Involved?", :class => "control-label" %>
+					<%= f.check_box :behav_other_involved, :class => "form-control" %>
+				</div>
+			</div>
+		</div>
+
+		<div id="behavioural_incident_detail_members">
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="form-group">
+						<%= f.label :behav_members_involved_detail, "Members:", :class => "control-label" %>
+						<%= f.text_area :behav_members_involved_detail, :class => "form-control", :rows => "3" %>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="behavioural_incident_detail_staff">
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="form-group">
+						<%= f.label :behav_staff_involved_detail, "Staff:", :class => "control-label" %>
+						<%= f.text_area :behav_staff_involved_detail, :class => "form-control", :rows => "3" %>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="behavioural_incident_detail_other">
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="form-group">
+						<%= f.label :behav_other_involved_detail, "Others:", :class => "control-label" %>
+						<%= f.text_area :behav_other_involved_detail, :class => "form-control", :rows => "3" %>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="panel-footer clearfix">
+		<div class="pull-right">
+			<%= f.link_to_remove "Remove Behavioural", :class => "btn btn-danger"  %>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+	    $('#incident_behaviourals_attributes_0_behav_members_involved').change(function() {
+			if ( $(this).is(':checked') )
+			{
+	        	$("div#behavioural_incident_detail_members").show();
+	        }
+	        else
+			{
+	        	$("div#behavioural_incident_detail_members").hide();
+	        }
+	    }).trigger('change');
+
+	    $('#incident_behaviourals_attributes_0_behav_staff_involved').change(function() {
+			if ( $(this).is(':checked') )
+			{
+	        	$("div#behavioural_incident_detail_staff").show();
+	        }
+	        else
+			{
+	        	$("div#behavioural_incident_detail_staff").hide();
+	        }
+	    }).trigger('change');
+
+	    $('#incident_behaviourals_attributes_0_behav_other_involved').change(function() {
+			if ( $(this).is(':checked') )
+			{
+	        	$("div#behavioural_incident_detail_other").show();
+	        }
+	        else
+			{
+	        	$("div#behavioural_incident_detail_other").hide();
+	        }
+	    }).trigger('change');
+	});
+</script>

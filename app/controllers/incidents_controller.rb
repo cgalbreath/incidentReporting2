@@ -49,7 +49,7 @@ class IncidentsController < ApplicationController
   end
 
   def edit
-    @injuries = Injury.where(incident_id: 1)
+    @injury_selected = Injury.where(incident_id: @incident.id, injury_count_id: 2).first;
     @sysDateTime = @incident.date_reported
     if Injury.where(incident_id: @incident.id).empty?
       @incident.injuries.build

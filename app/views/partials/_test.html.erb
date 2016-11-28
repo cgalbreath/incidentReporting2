@@ -1,39 +1,41 @@
-<%= f.fields_for :injuries do |injury_builder| %>
 <div class="row">
 	<div class="col-sm-6">
-	<div class="form-group">
-	  <%= select nil, nil, options_for_select(Injury.all.collect {|p| [ p.injury_string ] }), {:multiple => true, :class => 'form-control', :size =>10 }, :id => "injury_list" %>
-	</div>
+		<div class="form-group">
+			<%= select(nil, nil, Injury.where(incident_id: @incident.id).collect{|p| ["Injury - #{p.injury_count_id}", p.injury_count_id]}, {}, :size => 8, :style => "min-width: 150px; overflow: hidden;", :id => "injury_list") %>
+			<a href="JavaScript:void(0);" id="add-injury"><i class="glyphicon glyphicon-plus" style="color: green"></i></a>
+			<a href="JavaScript:void(0);" id="remove-injury"><i class="glyphicon glyphicon-minus" style="color: red"></i></a>
+		</div>
 	</div>
 </div>
 
+<%= f.fields_for @injury_selected do |f| %>
 <div class="row">
 	<div class="col-sm-6">
 	      <div class="form-group">
-			<%= injury_builder.label :injury_involved_type_id, "Invovled Type:", :class => "control-label" %>
-	        <%= injury_builder.select :injury_involved_type_id, InvolvedType.all.collect {|p| [ p.name, p.id ] }, { include_blank: true }, {:class => 'form-control'} %>
+			<%= f.label :injury_involved_type_id, "Invovled Type:", :class => "control-label" %>
+	        <%= f.select :injury_involved_type_id, InvolvedType.all.collect {|p| [ p.name, p.id ] }, { include_blank: true }, {:class => 'form-control'} %>
 		</div>
 	</div>
 	<div class="col-sm-6">
 	      <div class="form-group">
-			<%= injury_builder.label :injury_involved_name, "Involved Name:", :class => "control-label" %>
-	        <%= injury_builder.text_field :injury_involved_name, :class => "form-control" %>
+			<%= f.label :injury_involved_name, "Involved Name:", :class => "control-label" %>
+	        <%= f.text_field :injury_involved_name, :class => "form-control" %>
 		</div>
 	</div>
 </div>
 <div class="row">
 	<div class="col-sm-12">
 		<div class="form-group">
-			<%= injury_builder.label :injury_description, "Injury Description:", :class => "control-label" %>
-			<%= injury_builder.text_area :injury_description, :class => "form-control", :rows => "3" %>
+			<%= f.label :injury_description, "Injury Description:", :class => "control-label" %>
+			<%= f.text_area :injury_description, :class => "form-control", :rows => "3" %>
 		</div>
 	</div>
 </div>
 <div class="row">
 	<div class="col-sm-12">
 	      <div class="form-group">
-			<%= injury_builder.label :injury_first_aid, "What medical care was provided?", :class => "control-label" %>
-	        <%= injury_builder.text_area :injury_first_aid, :class => "form-control", :rows => "3" %>
+			<%= f.label :injury_first_aid, "What medical care was provided?", :class => "control-label" %>
+	        <%= f.text_area :injury_first_aid, :class => "form-control", :rows => "3" %>
 		</div>
 	</div>
 </div>
@@ -41,22 +43,22 @@
 	<div class="col-sm-1">
 	</div>
 	<div class="col-sm-1">
-			<%= injury_builder.label :injury_guardian_notified, "Parent notified", :class => "control-label" %>
-	        <%= injury_builder.check_box :injury_guardian_notified, :class => "form-control" %>
+			<%= f.label :injury_guardian_notified, "Parent notified", :class => "control-label" %>
+	        <%= f.check_box :injury_guardian_notified, :class => "form-control" %>
 	</div>
 </div>
 <div id="incident_injuries_guardian_info">
 	<div class="row">
 		<div class="col-sm-6">
 			<div class="form-group">
-				<%= injury_builder.label :injury_guardian_name, "Parent Name", :class => "control-label" %>
-		        <%= injury_builder.text_field :injury_guardian_name, :class => "form-control" %>
+				<%= f.label :injury_guardian_name, "Parent Name", :class => "control-label" %>
+		        <%= f.text_field :injury_guardian_name, :class => "form-control" %>
 			</div>
 		</div>
 		<div class="col-sm-6">
 			<div class="form-group">
-				<%= injury_builder.label :injury_guardian_number, "Parent Number", :class => "control-label" %>
-		        <%= injury_builder.text_field :injury_guardian_number, :class => "form-control" %>
+				<%= f.label :injury_guardian_number, "Parent Number", :class => "control-label" %>
+		        <%= f.text_field :injury_guardian_number, :class => "form-control" %>
 			</div>
 		</div>
 	</div>
@@ -64,8 +66,8 @@
 <div class="row">
 	<div class="col-sm-12">
 	      <div class="form-group">
-			<%= injury_builder.label :injury_followup, "Follow-up Notes:", :class => "control-label" %>
-	        <%= injury_builder.text_area :injury_followup, :class => "form-control", :rows => "3" %>
+			<%= f.label :injury_followup, "Follow-up Notes:", :class => "control-label" %>
+	        <%= f.text_area :injury_followup, :class => "form-control", :rows => "3" %>
 		</div>
 	</div>
 </div>
@@ -83,5 +85,28 @@
 	        	$("div#incident_injuries_guardian_info").hide();
 	        }
 	    }).trigger('change');
+	});
+	$(document).ready(function(){
+	    $('#add-injury').click(function() {
+	    	var lastValue = $('#injury_list option:last-child').val();
+	    	if ( lastValue == null )
+	    	{
+	    		$('#injury_list').append("<option value='1'>Injury - 1</option>");
+	    	} else {
+		        lastValue++;
+	            $('#injury_list').append("<option value='"+lastValue+"'>Injury - "+lastValue+"</option>");
+	        }
+    	});
+	});
+	$(document).ready(function(){
+	    $('#remove-injury').click(function() {
+	    	var lastValue = $('#injury_list option:last-child').val();
+	        $("#injury_list option[value='"+lastValue+"']").remove();    	});
+	});
+	$(document).ready(function(){
+	    $('#injury_list').on('change', function() {
+	    	sel_injury = $('#injury_list :selected').val();
+	    	
+	    });
 	});
 </script>

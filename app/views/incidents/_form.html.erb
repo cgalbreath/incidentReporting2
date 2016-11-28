@@ -7,7 +7,6 @@
 	<li><a href="#property" data-toggle="tab">Property</a></li>
 	<li><a href="#behavioural" data-toggle="tab">Behavioural</a></li>
 	<li><a href="#misconduct" data-toggle="tab">Misconduct</a></li>
-	<li><a href="#test" data-toggle="tab">Test</a></li>
 </ul>
 </br>
 <div class="tab-content">
@@ -18,28 +17,27 @@
 	</div>
 
 	<div class="tab-pane" id="injury">
-		<%= render 'partials/injury', f: f %>
+		<%= f.fields_for :injuries %>
+		<%= f.link_to_add "Add Injury", :injuries, :class => "btn btn-success" %>
 	</div> 
 	<div class="tab-pane" id="theft">
-		<%= render 'partials/theft', f: f %>
+		<%= f.fields_for :thefts %>
+		<%= f.link_to_add "Add Theft", :thefts, :class => "btn btn-success" %>
 	</div>
 	<div class="tab-pane" id="vehicle">
-		<%= render 'partials/veh_accident', f: f %>
+		<%= f.fields_for :vehicle_accidents %>
+		<%= f.link_to_add "Add Vehicle", :vehicle_accidents, :class => "btn btn-success" %>
 	</div> 
 	<div class="tab-pane" id="property">
-		<%= render 'partials/prop_damage', f: f %>
+		<%= f.fields_for :property_damages %>
+		<%= f.link_to_add "Add Property Damage", :property_damages, :class => "btn btn-success" %>
 	</div>  
 	<div class="tab-pane" id="behavioural">
-		<%= render 'partials/behavioural', f: f %>
+		<%= f.fields_for :behaviourals %>
+		<%= f.link_to_add "Add Behavioural", :behaviourals, :class => "btn btn-success" %>
 	</div> 
 	<div class="tab-pane" id="misconduct">
 		<%= render 'partials/misconduct', f: f %>
-	</div>
-	<div class="tab-pane" id="misconduct">
-		<%= render 'partials/misconduct', f: f %>
-	</div>
-	<div class="tab-pane" id="test">
-		<%= render 'partials/test', f: f %>
 	</div>
 
 	<div class="row">

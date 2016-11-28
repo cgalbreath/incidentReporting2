@@ -5,11 +5,8 @@ class CreateMisconducts < ActiveRecord::Migration
       t.text :misconduct_description
 	  t.boolean :misconduct_cps_notified
 	  t.boolean :misconduct_emergency_notified
-	  t.boolean :misconduct_guardian_notified
 	  t.text :misconduct_cps_detail
 	  t.text :misconduct_emergency_detail
-	  t.string :misconduct_guardian_name
-	  t.string :misconduct_guardian_number
 	  t.text :misconduct_followup
 	  t.boolean :misconduct_members_involved
 	  t.boolean :misconduct_staff_involved

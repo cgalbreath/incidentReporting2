@@ -99,6 +99,23 @@
 	</div>
 </div>
 
+<div id="guardian_info">
+	<div class="row">
+		<div class="col-sm-6">
+			<div class="form-group">
+				<%= f.label :guardian_name, "Parent Name",:class => "control-label" %>
+		        <%= f.text_field :guardian_name, :class => "form-control" %>
+			</div>
+		</div>
+		<div class="col-sm-6">
+			<div class="form-group">
+				<%= f.label :guardian_number,"Parent Number", :class => "control-label" %>
+		        <%= f.text_field :guardian_number, :class => "form-control" %>
+			</div>
+		</div>
+	</div>
+</div>
+
 <script>
 	areas = $('#incident_area_id').html();
 	programs = $('#incident_program_id').html();
@@ -119,4 +136,15 @@
 			$('#incident_program_id').empty();
 		}
 	}).trigger('change');
+
+	$('#incident_guardian_notified').change(function() {
+			if ( $(this).is(':checked') )
+			{
+	        	$("div#guardian_info").show();
+	        }
+	        else
+			{
+	        	$("div#guardian_info").hide();
+	        }
+	    }).trigger('change');
 </script>

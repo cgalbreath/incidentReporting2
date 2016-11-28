@@ -14,6 +14,9 @@ class Incidents < ActiveRecord::Migration
       t.integer :program_id
       t.integer :facility_id
       t.integer :area_id
+      t.boolean :guardian_notified
+      t.string :guardian_name
+      t.string :guardian_number
   	end
   end
 end

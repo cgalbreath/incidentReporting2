@@ -27,9 +27,6 @@ ActiveRecord::Schema.define(version: 20161119225506) do
     t.integer  "behav_involved_type_id",        limit: 4
     t.string   "behav_involved_name",           limit: 255
     t.text     "behav_description",             limit: 65535
-    t.boolean  "behav_guardian_notified"
-    t.string   "behav_guardian_name",           limit: 255
-    t.string   "behav_guardian_number",         limit: 255
     t.text     "behav_counseling",              limit: 65535
     t.text     "behav_followup",                limit: 65535
     t.boolean  "behav_members_involved"
@@ -92,20 +89,21 @@ ActiveRecord::Schema.define(version: 20161119225506) do
     t.integer "program_id",        limit: 4
     t.integer "facility_id",       limit: 4
     t.integer "area_id",           limit: 4
+    t.boolean "guardian_notified"
+    t.string  "guardian_name",     limit: 255
+    t.string  "guardian_number",   limit: 255
   end
 
   create_table "injuries", force: :cascade do |t|
-    t.integer  "incident_id",              limit: 4
-    t.integer  "injury_involved_type_id",  limit: 4
-    t.string   "injury_involved_name",     limit: 255
-    t.string   "injury_description",       limit: 255
-    t.string   "injury_first_aid",         limit: 255
-    t.string   "injury_guardian_number",   limit: 255
-    t.string   "injury_guardian_name",     limit: 255
-    t.boolean  "injury_guardian_notified"
-    t.text     "injury_followup",          limit: 65535
-    t.datetime "created_at",                             null: false
-    t.datetime "updated_at",                             null: false
+    t.integer  "incident_id",             limit: 4
+    t.integer  "injury_involved_type_id", limit: 4
+    t.integer  "injury_count_id",         limit: 4
+    t.string   "injury_involved_name",    limit: 255
+    t.string   "injury_description",      limit: 255
+    t.string   "injury_first_aid",        limit: 255
+    t.text     "injury_followup",         limit: 65535
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
   end
 
   create_table "involved_types", force: :cascade do |t|
@@ -125,11 +123,8 @@ ActiveRecord::Schema.define(version: 20161119225506) do
     t.text     "misconduct_description",             limit: 65535
     t.boolean  "misconduct_cps_notified"
     t.boolean  "misconduct_emergency_notified"
-    t.boolean  "misconduct_guardian_notified"
     t.text     "misconduct_cps_detail",              limit: 65535
     t.text     "misconduct_emergency_detail",        limit: 65535
-    t.string   "misconduct_guardian_name",           limit: 255
-    t.string   "misconduct_guardian_number",         limit: 255
     t.text     "misconduct_followup",                limit: 65535
     t.boolean  "misconduct_members_involved"
     t.boolean  "misconduct_staff_involved"

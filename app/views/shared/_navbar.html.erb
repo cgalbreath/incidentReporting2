@@ -29,6 +29,9 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user" aria-hidden="true"></span><i class="fa fa-user"></i> <%= current_user.username %> <b class="caret"></b></a>
             <ul class="dropdown-menu">
               <li>
+                <i class="fa fa-fw fa-user"></i><%= link_to "Profile", edit_user_registration_path %>
+              </li>
+              <li>
                 <i class="fa fa-fw fa-power-off"></i><%= link_to "Logout", destroy_user_session_path, method: :delete %>
               </li>
             </ul>
