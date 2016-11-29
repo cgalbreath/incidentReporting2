@@ -72,6 +72,7 @@ private
   def user_params
     params.require(:user).permit(:email,
                                  :admin,
+                                 :username,
                                  {:facility_id => []},
                                  {:program_id => []}
                                  )

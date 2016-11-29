@@ -25,6 +25,7 @@
       <%= render 'shared/sidebar' %>
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
+          <%= render 'shared/mobile_nav' %>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user" aria-hidden="true"></span><i class="fa fa-user"></i> <%= current_user.username %> <b class="caret"></b></a>
             <ul class="dropdown-menu">
