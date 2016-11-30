@@ -76,34 +76,38 @@ ActiveRecord::Schema.define(version: 20161119225506) do
   end
 
   create_table "incidents", force: :cascade do |t|
-    t.string  "date_reported",     limit: 255
-    t.string  "date_of_incident",  limit: 255
-    t.string  "reporter",          limit: 255
-    t.string  "reporter_atc",      limit: 255
-    t.string  "witness",           limit: 255
-    t.string  "witness_atc",       limit: 255
-    t.text    "description",       limit: 65535
-    t.string  "physical_address",  limit: 255
-    t.integer "severity_level_id", limit: 4
-    t.integer "location_id",       limit: 4
-    t.integer "program_id",        limit: 4
-    t.integer "facility_id",       limit: 4
-    t.integer "area_id",           limit: 4
-    t.boolean "guardian_notified"
-    t.string  "guardian_name",     limit: 255
-    t.string  "guardian_number",   limit: 255
+    t.string  "date_reported",      limit: 255
+    t.string  "date_of_incident",   limit: 255
+    t.string  "reporter",           limit: 255
+    t.string  "reporter_atc",       limit: 255
+    t.string  "witness",            limit: 255
+    t.string  "witness_atc",        limit: 255
+    t.text    "description",        limit: 65535
+    t.string  "physical_address",   limit: 255
+    t.integer "severity_level_id",  limit: 4
+    t.integer "location_id",        limit: 4
+    t.integer "program_id",         limit: 4
+    t.integer "facility_id",        limit: 4
+    t.integer "area_id",            limit: 4
+    t.boolean "emergency_notified"
+    t.string  "emergency_detail",   limit: 255
+    t.boolean "insurance_filed"
+    t.string  "insurance_detail",   limit: 255
   end
 
   create_table "injuries", force: :cascade do |t|
-    t.integer  "incident_id",             limit: 4
-    t.integer  "injury_involved_type_id", limit: 4
-    t.integer  "injury_count_id",         limit: 4
-    t.string   "injury_involved_name",    limit: 255
-    t.string   "injury_description",      limit: 255
-    t.string   "injury_first_aid",        limit: 255
-    t.text     "injury_followup",         limit: 65535
-    t.datetime "created_at",                            null: false
-    t.datetime "updated_at",                            null: false
+    t.integer  "incident_id",              limit: 4
+    t.integer  "injury_involved_type_id",  limit: 4
+    t.integer  "injury_count_id",          limit: 4
+    t.string   "injury_involved_name",     limit: 255
+    t.string   "injury_description",       limit: 255
+    t.string   "injury_first_aid",         limit: 255
+    t.text     "injury_followup",          limit: 65535
+    t.boolean  "injury_guardian_notified"
+    t.string   "injury_guardian_name",     limit: 255
+    t.string   "injury_guardian_number",   limit: 255
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
   end
 
   create_table "involved_types", force: :cascade do |t|
@@ -164,21 +168,12 @@ ActiveRecord::Schema.define(version: 20161119225506) do
   end
 
   create_table "thefts", force: :cascade do |t|
-    t.integer  "incident_id",                   limit: 4
-    t.text     "theft_description",             limit: 65535
-    t.boolean  "theft_emergency_notified"
-    t.boolean  "theft_insurance_filed"
+    t.integer  "incident_id",          limit: 4
+    t.text     "theft_serial",         limit: 65535
+    t.text     "theft_description",    limit: 65535
     t.boolean  "theft_security_video"
-    t.text     "theft_emergency_detail",        limit: 65535
-    t.text     "theft_insurance_filed_detail",  limit: 65535
-    t.boolean  "theft_members_involved"
-    t.boolean  "theft_staff_involved"
-    t.boolean  "theft_other_involved"
-    t.text     "theft_members_involved_detail", limit: 65535
-    t.text     "theft_staff_involved_detail",   limit: 65535
-    t.text     "theft_other_involved_detail",   limit: 65535
-    t.datetime "created_at",                                  null: false
-    t.datetime "updated_at",                                  null: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
   end
 
   create_table "users", force: :cascade do |t|

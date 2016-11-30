@@ -1,6 +1,6 @@
 <div class="panel panel-default">
-	<div class="panel-heading">Injury - <%= @incident.id %></div>
-	<div class="panel-body">		
+	<div class="panel-heading">Behavioural - <%= f.index %></div>
+	<div class="panel-body" style="padding-bottom: 0px">		
 		<div class="row">
 			<div class="col-sm-6">
 			      <div class="form-group">
@@ -38,74 +38,6 @@
 			      <div class="form-group">
 					<%= f.label :behav_followup, "What follow-up occured?", :class => "control-label" %>
 			        <%= f.text_area :behav_followup, :class => "form-control", :rows => "3" %>
-				</div>
-			</div>
-		</div>
-
-		<div class="row">
-			<div class="col-sm-1">
-			</div>
-			<div class="col-sm-1">
-				<div class="form-group">
-					<%= f.label :behav_members_involved, "Members Involved?", :class => "control-label" %>
-					<%= f.check_box :behav_members_involved, :class => "form-control" %>
-				</div>
-			</div>
-			<div class="col-sm-1">
-			</div>
-			<div class="col-sm-1">
-			</div>
-			<div class="col-sm-1">
-			</div>
-			<div class="col-sm-1">
-				<div class="form-group">
-					<%= f.label :behav_staff_involved, "Staff Involved?", :class => "control-label" %>
-					<%= f.check_box :behav_staff_involved, :class => "form-control" %>
-				</div>
-			</div>
-			<div class="col-sm-1">
-			</div>
-			<div class="col-sm-1">
-			</div>
-			<div class="col-sm-1">
-			</div>
-			<div class="col-sm-1">
-				<div class="form-group">
-					<%= f.label :behav_other_involved, "Other Involved?", :class => "control-label" %>
-					<%= f.check_box :behav_other_involved, :class => "form-control" %>
-				</div>
-			</div>
-		</div>
-
-		<div id="behavioural_incident_detail_members">
-			<div class="row">
-				<div class="col-sm-12">
-					<div class="form-group">
-						<%= f.label :behav_members_involved_detail, "Members:", :class => "control-label" %>
-						<%= f.text_area :behav_members_involved_detail, :class => "form-control", :rows => "3" %>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div id="behavioural_incident_detail_staff">
-			<div class="row">
-				<div class="col-sm-12">
-					<div class="form-group">
-						<%= f.label :behav_staff_involved_detail, "Staff:", :class => "control-label" %>
-						<%= f.text_area :behav_staff_involved_detail, :class => "form-control", :rows => "3" %>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div id="behavioural_incident_detail_other">
-			<div class="row">
-				<div class="col-sm-12">
-					<div class="form-group">
-						<%= f.label :behav_other_involved_detail, "Others:", :class => "control-label" %>
-						<%= f.text_area :behav_other_involved_detail, :class => "form-control", :rows => "3" %>
-					</div>
 				</div>
 			</div>
 		</div>

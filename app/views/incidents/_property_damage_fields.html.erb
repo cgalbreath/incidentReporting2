@@ -1,6 +1,6 @@
 <div class="panel panel-default">
-	<div class="panel-heading">Property Damage - <%= @incident.id %></div>
-	<div class="panel-body">
+	<div class="panel-heading">Property Damage - <%= f.index %></div>
+	<div class="panel-body" style="padding-bottom: 0px">
 		<div class="row">
 			<div class="col-sm-12">
 				<div class="form-group">
@@ -15,74 +15,6 @@
 				<div class="form-group">
 					<%= f.label :prop_occurance, "How Property was Damaged:", :class => "control-label" %>
 					<%= f.text_area :prop_occurance, :class => "form-control", :rows => "3" %>
-				</div>
-			</div>
-		</div>
-
-		<div class="row">
-			<div class="col-sm-1">
-			</div>
-			<div class="col-sm-1">
-				<div class="form-group">
-					<%= f.label :prop_emergency_notified, "Police Report filed?",:class => "control-label" %>
-			        <%= f.check_box :prop_emergency_notified, :class => "form-control" %>
-				</div>
-			</div>
-			<div class="col-sm-1">
-			</div>
-			<div class="col-sm-1">
-			</div>
-			<div class="col-sm-1">
-			</div>
-			<div class="col-sm-1">
-				<div class="form-group">
-					<%= f.label :prop_insurance_filed, "Insurance claim filed?", :class => "control-label" %>
-			        <%= f.check_box :prop_insurance_filed, :class => "form-control" %>
-				</div>
-			</div>
-			<div class="col-sm-1">
-			</div>
-			<div class="col-sm-1">
-			</div>
-			<div class="col-sm-1">
-			</div>
-			<div class="col-sm-1">
-				<div class="form-group">
-					<%= f.label :prop_members_involved, "Members Involved?",:class => "control-label" %>
-					<%= f.check_box :prop_members_involved, :class => "form-control" %>
-				</div>
-			</div>
-		</div>
-
-		<div id="prop_damage_incident_detail_emergency_info">
-			<div class="row">
-				<div class="col-sm-12">
-					<div class="form-group">
-						<%= f.label :prop_emergency_detail, "Police Report Info:", :class => "control-label" %>
-						<%= f.text_area :prop_emergency_detail, :class => "form-control", :rows => "3" %>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div id="prop_damage_incident_detail_insurance_info">
-			<div class="row">
-				<div class="col-sm-12">
-					<div class="form-group">
-						<%= f.label :prop_insurance_filed_detail, "Insurance Claim Info:", :class => "control-label" %>
-						<%= f.text_area :prop_insurance_filed_detail, :class => "form-control", :rows => "3" %>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div id="prop_damage_incident_detail_members">
-			<div class="row">
-				<div class="col-sm-12">
-					<div class="form-group">
-						<%= f.label :prop_members_involved_detail, "Members:", :class => "control-label" %>
-						<%= f.text_area :prop_members_involved_detail, :class => "form-control", :rows => "3" %>
-					</div>
 				</div>
 			</div>
 		</div>

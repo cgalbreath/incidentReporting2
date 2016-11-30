@@ -8,6 +8,9 @@ class CreateInjuries < ActiveRecord::Migration
       t.string :injury_description
       t.string :injury_first_aid
       t.text :injury_followup
+      t.boolean :injury_guardian_notified
+      t.string :injury_guardian_name
+      t.string :injury_guardian_number
 
       t.timestamps null: false
     end
