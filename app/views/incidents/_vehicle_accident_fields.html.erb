@@ -2,33 +2,74 @@
 	<div class="panel-heading">Vehicle Accident - <%= f.index %></div>
 	<div class="panel-body" style="padding-bottom: 0px">
 		<div class="row">
-			<div class="col-sm-6">
+			<div class="col-md-6">
 			      <div class="form-group">
 					<%= f.label :veh_ownership_id, "Vehicle Owner", :class => "control-label" %>
 			        <%= f.select :veh_ownership_id, VehicleOwnership.all.collect {|p| [ p.name, p.id ] }, { include_blank: true }, {:class => 'form-control'} %>
 				</div>
 			</div>
+			<div id="<%= form_tag_id(f.object_name, :veh_not_owned_area) %>">
+				<div class="col-md-6">
+					<div class="form-group">
+						<%= f.label :veh_description, "Description", :class => "control-label" %>
+						<%= f.text_field :veh_description, :class => "form-control" %>
+					</div>
+				</div>
+			</div>
+			<div id="<%= form_tag_id(f.object_name, :vehicle_owned_area) %>">
+				<div class="col-md-6">
+					<div class="form-group">
+						<%= f.label :veh_description, "Description", :class => "control-label" %>
+						<%= f.collection_select :veh_description, Bus.all, :id, :BUS_NUM, {:prompt => 'Select Bus...'}, {:class => 'form-control', :id => form_tag_id(f.object_name, :veh_description_2)} %>
+					</div>
+				</div>
+			</div>
 		</div>
 
 		<div class="row">
-			<div class="col-sm-1">
-			</div>
-			<div class="col-sm-1">
+			<div class="col-md-6">
 				<div class="form-group">
-					<%= f.label :veh_alternative_transport, "Alternative Transport?", :class => "control-label" %>
-					<%= f.check_box :veh_alternative_transport, :class => "form-control" %>
+					<%= f.label :veh_car_vin,"Vehicle VIN:", :class => "control-label" %>
+					<%= f.text_field :veh_car_vin, :class => "form-control" %>
 				</div>
 			</div>
-			<div class="col-sm-1">
+			<div class="col-md-6">
+				<div class="form-group">
+					<%= f.label :veh_car_plate,"Vehicle Plate Num:", :class => "control-label" %>
+					<%= f.text_field :veh_car_plate, :class => "form-control" %>
+				</div>
 			</div>
 		</div>
 
-		<div id="veh_accident_incident_detail_alt_transport">
-			<div class="row">
-				<div class="col-sm-12">
+		<div class="row">
+			<div class="col-md-6">
+				<div class="form-group" style="padding-top: 20px;padding-left: 30px;">
+				    <%= f.check_box :veh_alternative_transport %>
+				    <%= f.label :veh_alternative_transport, "Alternative Transport?" %>
+				</div>
+			</div>
+			<div id="<%= form_tag_id(f.object_name, :alternative_transport_info) %>">
+				<div class="col-md-6">
 					<div class="form-group">
-						<%= f.label :veh_alternative_transport_detail, "Alternative Transport Info:", :class => "control-label" %>
-						<%= f.text_area :veh_alternative_transport_detail, :class => "form-control", :rows => "3" %>
+						<%= f.label :veh_alternative_description, "Alternate Veh. Description:", :class => "control-label" %>
+						<%= f.text_field :veh_alternative_description, :class => "form-control" %>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="<%= form_tag_id(f.object_name, :alternative_transport_info) %>">
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group">
+						<%= f.label :veh_alternative_car_vin, "Alternate Veh. VIN:", :class => "control-label" %>
+						<%= f.text_field :veh_alternative_car_vin, :class => "form-control" %>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<%= f.label :veh_alternative_car_plate, "Alternate Veh Plate Num:", :class => "control-label" %>
+						<%= f.text_field :veh_alternative_car_plate, :class => "form-control" %>
 					</div>
 				</div>
 			</div>
@@ -43,18 +84,65 @@
 </div>
 
 
-<script type="text/javascript">
+<script>
 	$(document).ready(function(){
+		window.buses = <%=raw Bus.all.to_json %>;
 
-	    $('#incident_vehicle_accidents_attributes_0_veh_alternative_transport').change(function() {
+	    $('#<%= form_tag_id(f.object_name, :veh_alternative_transport) %>').change(function() {
 			if ( $(this).is(':checked') )
 			{
-	        	$("div#veh_accident_incident_detail_alt_transport").show();
+	        	$("div#<%= form_tag_id(f.object_name, :alternative_transport_info) %>").show();
 	        }
 	        else
 			{
-	        	$("div#veh_accident_incident_detail_alt_transport").hide();
+	        	$("div#<%= form_tag_id(f.object_name, :alternative_transport_info) %>").hide();
 	        }
 	    }).trigger('change');
+
+	    $('#<%= form_tag_id(f.object_name, :veh_ownership_id) %>').change(function() {
+	    	if ( this.value == 1 )
+	    	{
+	    		$("div#<%= form_tag_id(f.object_name, :vehicle_owned_area) %>").show();
+	        	$("div#<%= form_tag_id(f.object_name, :veh_not_owned_area) %>").hide();
+	        	$("#<%= form_tag_id(f.object_name, :veh_car_vin) %>").prop('readonly',true);
+	        	$("#<%= form_tag_id(f.object_name, :veh_car_plate) %>").prop('readonly',true);
+        		$("#<%= form_tag_id(f.object_name, :veh_car_vin) %>").val("");
+	        	$("#<%= form_tag_id(f.object_name, :veh_car_plate) %>").val("");
+	        } else {
+	        	var vehicle_id = $('#<%= form_tag_id(f.object_name, :veh_description_2) %>').val();
+	        	if ( vehicle_id > 0 )
+	        	{
+	        		$('#<%= form_tag_id(f.object_name, :veh_description_2) %>').val(0);
+	        	// 	$("#<%= form_tag_id(f.object_name, :veh_description) %>").val("");
+		        // 	$("#<%= form_tag_id(f.object_name, :veh_car_vin) %>").val("");
+		        // 	$("#<%= form_tag_id(f.object_name, :veh_car_plate) %>").val("");
+	        	}
+	        	$("div#<%= form_tag_id(f.object_name, :veh_not_owned_area) %>").show();
+	        	$("div#<%= form_tag_id(f.object_name, :vehicle_owned_area) %>").hide();
+	        	$("#<%= form_tag_id(f.object_name, :veh_car_vin) %>").prop('readonly',false);
+	        	$("#<%= form_tag_id(f.object_name, :veh_car_plate) %>").prop('readonly',false);
+	        }
+	    }).trigger('change');
+
+	    $('#<%= form_tag_id(f.object_name, :veh_description_2) %>').change(function() {
+	    	if ( this.value > 0 ) 
+	    	{
+		    	var vehicle_id = $('#<%= form_tag_id(f.object_name, :veh_description_2) %>').val();
+		    	var vin_num = get_VIN(vehicle_id);
+		    	var plate_num = get_PLATE(vehicle_id);
+		    	$("#<%= form_tag_id(f.object_name, :veh_car_vin) %>").val(vin_num);
+		    	$("#<%= form_tag_id(f.object_name, :veh_car_plate) %>").val(plate_num);
+	    	}
+	    }).trigger('change');
+
+	    function get_VIN(VEH_ID){
+	    	var VIN = "XXXXXXXXXXXXX"+buses[VEH_ID-1].FOUR_VIN;
+	    	return VIN;
+	    }
+
+	    function get_PLATE(VEH_ID){
+	    	var PLATE = buses[VEH_ID-1].PLATE;
+	    	return PLATE;
+	    }
 	});
 </script>

@@ -63,12 +63,10 @@
 	$('#<%= form_tag_id(f.object_name, :injury_guardian_notified) %>').change(function() {
 			if ( $(this).is(':checked') )
 			{
-				console.log("It is checked");
 	        	$("div#<%= form_tag_id(f.object_name, :injury_guardian_info) %>").show();
 	        }
 	        else
 			{
-				console.log("It is unchecked");
 	        	$("div#<%= form_tag_id(f.object_name, :injury_guardian_info) %>").hide();
 	        }
 	    }).trigger('change');

@@ -49,7 +49,6 @@ class IncidentsController < ApplicationController
   end
 
   def edit
-    @injury_selected = Injury.where(incident_id: @incident.id, injury_count_id: 2).first;
     @sysDateTime = @incident.date_reported
     if Injury.where(incident_id: @incident.id).empty?
       @incident.injuries.build
@@ -112,27 +111,19 @@ private
                                      :description,
                                      :physical_address,
                                      :severity_level_id,
+                                     :emergency_notified,
+                                     :insurance_filed,
+                                     :emergency_detail,
+                                     :insurance_detail,
                                      injuries_attributes: [:id, :incident_id, :injury_involved_type_id, :injury_involved_name,
                                       :injury_description, :injury_first_aid, :injury_guardian_notified, :injury_guardian_name, :injury_guardian_number,
-                                      :injury_followup, :_destroy],
-                                     thefts_attributes: [:id, :incident_id, :theft_description, :theft_emergency_notified, 
-                                      :theft_insurance_filed, :theft_security_video, :theft_emergency_detail, :theft_insurance_filed_detail,
-                                      :theft_members_involved, :theft_staff_involved, :theft_other_involved, :theft_members_involved_detail,
-                                      :theft_staff_involved_detail, :theft_other_involved_detail, :_destroy],
-                                     vehicle_accidents_attributes: [:id, :incident_id, :veh_ownership_id, :veh_description, 
-                                      :veh_car_description, :veh_members_involved, :veh_alternative_transport, :veh_insurance_filed,
-                                      :veh_drug_screen, :veh_emergency_notified, :veh_members_involved_detail, :veh_alternative_transport_detail,
-                                      :veh_insurance_filed_detail, :veh_emergency_detail, :_destroy],
-                                     property_damages_attributes: [:id, :incident_id, :prop_description, :prop_occurance, :prop_emergency_notified, 
-                                      :prop_insurance_filed, :prop_members_involved, :prop_emergency_detail, :prop_insurance_filed_detail, 
-                                      :prop_members_involved_detail, :prop_followup, :_destroy],
+                                      :_destroy],
+                                     thefts_attributes: [:id, :incident_id, :theft_description, :theft_serial, :theft_security_video, :_destroy],
+                                     vehicle_accidents_attributes: [:id, :incident_id, :veh_ownership_id, :veh_description, :veh_car_vin, :veh_car_plate,
+                                      :veh_alternative_transport, :veh_alternative_description, :veh_alternative_car_vin, :veh_alternative_car_plate, :_destroy],
+                                     property_damages_attributes: [:id, :incident_id, :prop_description, :prop_occurance, :_destroy],
                                      behaviourals_attributes: [:id, :incident_id, :behav_involved_name, :behav_involved_type_id, :behav_description, :behav_guardian_notified, 
-                                      :behav_guardian_name, :behav_guardian_number, :behav_counseling, :behav_followup, 
-                                      :behav_members_involved, :behav_staff_involved, :behav_other_involved, 
-                                      :behav_members_involved_detail, :behav_staff_involved_detail, :behav_other_involved_detail, :_destroy],
-                                     misconducts_attributes: [:id, :incident_id, :misconduct_description, :misconduct_cps_notified, :misconduct_emergency_notified, :misconduct_guardian_notified,
-                                      :misconduct_cps_detail, :misconduct_emergency_detail, :misconduct_guardian_name, :misconduct_guardian_number, :misconduct_followup, 
-                                      :misconduct_members_involved, :misconduct_staff_involved, :misconduct_other_involved, :misconduct_members_involved_detail, 
-                                      :misconduct_staff_involved_detail, :misconduct_other_involved_detail, :_destroy])
+                                      :behav_guardian_name, :behav_guardian_number, :behav_counseling, :_destroy],
+                                     misconducts_attributes: [:id, :incident_id, :misconduct_description, :misconduct_cps_notified, :misconduct_cps_detail, :_destroy])
   end
 end

@@ -6,14 +6,9 @@ class CreateBehaviourals < ActiveRecord::Migration
       t.string :behav_involved_name
       t.text :behav_description
       t.text :behav_counseling
-      t.text :behav_followup
-      t.boolean :behav_members_involved
-      t.boolean :behav_staff_involved
-      t.boolean :behav_other_involved
-      t.text :behav_members_involved_detail
-      t.text :behav_staff_involved_detail
-      t.text :behav_other_involved_detail
-
+      t.boolean :behav_guardian_notified
+      t.string :behav_guardian_name
+      t.string :behav_guardian_number
       t.timestamps null: false
     end
   end

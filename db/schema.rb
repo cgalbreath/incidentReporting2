@@ -23,20 +23,16 @@ ActiveRecord::Schema.define(version: 20161119225506) do
   add_index "areas", ["facilities_id"], name: "index_areas_on_facilities_id", using: :btree
 
   create_table "behaviourals", force: :cascade do |t|
-    t.integer  "incident_id",                   limit: 4
-    t.integer  "behav_involved_type_id",        limit: 4
-    t.string   "behav_involved_name",           limit: 255
-    t.text     "behav_description",             limit: 65535
-    t.text     "behav_counseling",              limit: 65535
-    t.text     "behav_followup",                limit: 65535
-    t.boolean  "behav_members_involved"
-    t.boolean  "behav_staff_involved"
-    t.boolean  "behav_other_involved"
-    t.text     "behav_members_involved_detail", limit: 65535
-    t.text     "behav_staff_involved_detail",   limit: 65535
-    t.text     "behav_other_involved_detail",   limit: 65535
-    t.datetime "created_at",                                  null: false
-    t.datetime "updated_at",                                  null: false
+    t.integer  "incident_id",             limit: 4
+    t.integer  "behav_involved_type_id",  limit: 4
+    t.string   "behav_involved_name",     limit: 255
+    t.text     "behav_description",       limit: 65535
+    t.text     "behav_counseling",        limit: 65535
+    t.boolean  "behav_guardian_notified"
+    t.string   "behav_guardian_name",     limit: 255
+    t.string   "behav_guardian_number",   limit: 255
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
   end
 
   create_table "buses", force: :cascade do |t|
@@ -98,16 +94,14 @@ ActiveRecord::Schema.define(version: 20161119225506) do
   create_table "injuries", force: :cascade do |t|
     t.integer  "incident_id",              limit: 4
     t.integer  "injury_involved_type_id",  limit: 4
-    t.integer  "injury_count_id",          limit: 4
     t.string   "injury_involved_name",     limit: 255
     t.string   "injury_description",       limit: 255
     t.string   "injury_first_aid",         limit: 255
-    t.text     "injury_followup",          limit: 65535
     t.boolean  "injury_guardian_notified"
     t.string   "injury_guardian_name",     limit: 255
     t.string   "injury_guardian_number",   limit: 255
-    t.datetime "created_at",                             null: false
-    t.datetime "updated_at",                             null: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
   end
 
   create_table "involved_types", force: :cascade do |t|
@@ -123,21 +117,12 @@ ActiveRecord::Schema.define(version: 20161119225506) do
   end
 
   create_table "misconducts", force: :cascade do |t|
-    t.integer  "incident_id",                        limit: 4
-    t.text     "misconduct_description",             limit: 65535
+    t.integer  "incident_id",             limit: 4
+    t.text     "misconduct_description",  limit: 65535
     t.boolean  "misconduct_cps_notified"
-    t.boolean  "misconduct_emergency_notified"
-    t.text     "misconduct_cps_detail",              limit: 65535
-    t.text     "misconduct_emergency_detail",        limit: 65535
-    t.text     "misconduct_followup",                limit: 65535
-    t.boolean  "misconduct_members_involved"
-    t.boolean  "misconduct_staff_involved"
-    t.boolean  "misconduct_other_involved"
-    t.text     "misconduct_members_involved_detail", limit: 65535
-    t.text     "misconduct_staff_involved_detail",   limit: 65535
-    t.text     "misconduct_other_involved_detail",   limit: 65535
-    t.datetime "created_at",                                       null: false
-    t.datetime "updated_at",                                       null: false
+    t.text     "misconduct_cps_detail",   limit: 65535
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
   end
 
   create_table "programs", force: :cascade do |t|
@@ -147,18 +132,11 @@ ActiveRecord::Schema.define(version: 20161119225506) do
   end
 
   create_table "property_damages", force: :cascade do |t|
-    t.integer  "incident_id",                  limit: 4
-    t.text     "prop_description",             limit: 65535
-    t.text     "prop_occurance",               limit: 65535
-    t.boolean  "prop_emergency_notified"
-    t.boolean  "prop_insurance_filed"
-    t.boolean  "prop_members_involved"
-    t.text     "prop_emergency_detail",        limit: 65535
-    t.text     "prop_insurance_filed_detail",  limit: 65535
-    t.text     "prop_members_involved_detail", limit: 65535
-    t.text     "prop_followup",                limit: 65535
-    t.datetime "created_at",                                 null: false
-    t.datetime "updated_at",                                 null: false
+    t.integer  "incident_id",      limit: 4
+    t.text     "prop_description", limit: 65535
+    t.text     "prop_occurance",   limit: 65535
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
   end
 
   create_table "severity_levels", force: :cascade do |t|
@@ -217,21 +195,17 @@ ActiveRecord::Schema.define(version: 20161119225506) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "vehicle_accidents", force: :cascade do |t|
-    t.integer  "incident_id",                      limit: 4
-    t.integer  "veh_ownership_id",                 limit: 4
-    t.text     "veh_description",                  limit: 65535
-    t.text     "veh_car_description",              limit: 65535
-    t.boolean  "veh_members_involved"
+    t.integer  "incident_id",                 limit: 4
+    t.integer  "veh_ownership_id",            limit: 4
+    t.text     "veh_description",             limit: 65535
+    t.text     "veh_car_vin",                 limit: 65535
+    t.text     "veh_car_plate",               limit: 65535
     t.boolean  "veh_alternative_transport"
-    t.boolean  "veh_insurance_filed"
-    t.boolean  "veh_drug_screen"
-    t.boolean  "veh_emergency_notified"
-    t.text     "veh_members_involved_detail",      limit: 65535
-    t.text     "veh_alternative_transport_detail", limit: 65535
-    t.text     "veh_insurance_filed_detail",       limit: 65535
-    t.text     "veh_emergency_detail",             limit: 65535
-    t.datetime "created_at",                                     null: false
-    t.datetime "updated_at",                                     null: false
+    t.text     "veh_alternative_description", limit: 65535
+    t.text     "veh_alternative_car_vin",     limit: 65535
+    t.text     "veh_alternative_car_plate",   limit: 65535
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
   end
 
   create_table "vehicle_ownerships", force: :cascade do |t|

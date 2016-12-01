@@ -4,16 +4,12 @@ class CreateVehicleAccidents < ActiveRecord::Migration
       t.integer :incident_id
       t.integer :veh_ownership_id
       t.text :veh_description
-      t.text :veh_car_description
-      t.boolean :veh_members_involved
+      t.text :veh_car_vin
+      t.text :veh_car_plate
       t.boolean :veh_alternative_transport
-      t.boolean :veh_insurance_filed
-      t.boolean :veh_drug_screen
-      t.boolean :veh_emergency_notified
-      t.text :veh_members_involved_detail
-      t.text :veh_alternative_transport_detail
-      t.text :veh_insurance_filed_detail
-      t.text :veh_emergency_detail
+      t.text :veh_alternative_description
+      t.text :veh_alternative_car_vin
+      t.text :veh_alternative_car_plate
 
       t.timestamps null: false
     end

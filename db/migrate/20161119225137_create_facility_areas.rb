@@ -3,7 +3,6 @@ class CreateFacilityAreas < ActiveRecord::Migration
     create_table :facility_areas do |t|
       t.integer :facility_id
       t.integer :area_id
-
       t.timestamps null: false
     end
   end
