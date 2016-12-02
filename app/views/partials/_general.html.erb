@@ -98,15 +98,15 @@
 		        <li class="list-group-item">
 		            Emergency contacted?
 		            <div class="material-switch pull-right" style="padding-top: 10px;">
-		                <input id="emergency_notified" name="emergency_notified" type="checkbox"/>
-		                <label for="emergency_notified" class="label-primary"></label>
+	        			<%= f.check_box :emergency_notified %>
+		                <label for="<%= form_tag_id(f.object_name, :emergency_notified) %>" class="label-primary"></label>
 		            </div>
 		        </li>
 		        <li class="list-group-item">
 		            Insurance claim filed?
 		            <div class="material-switch pull-right" style="padding-top: 10px;">
-		                <input id="insurance_filed" name="insurance_filed" type="checkbox"/>
-		                <label for="insurance_filed" class="label-primary"></label>
+		                <%= f.check_box :insurance_filed %>
+		                <label for="<%= form_tag_id(f.object_name, :insurance_filed) %>" class="label-primary"></label>
 		            </div>
 		        </li>
 		    </ul>
@@ -165,7 +165,7 @@
 	}).trigger('change');
 
 
-	$('#emergency_notified').change(function() {
+	$('#<%= form_tag_id(f.object_name, :emergency_notified) %>').change(function() {
 		if ( $(this).is(':checked') )
 		{
         	$("div#<%= form_tag_id(f.object_name, :emergency_info) %>").show();
@@ -176,7 +176,7 @@
         }
     }).trigger('change');
 
-	$('#insurance_filed').change(function() {
+	$('#<%= form_tag_id(f.object_name, :insurance_filed) %>').change(function() {
 		if ( $(this).is(':checked') )
 		{
         	$("div#<%= form_tag_id(f.object_name, :insurance_info) %>").show();

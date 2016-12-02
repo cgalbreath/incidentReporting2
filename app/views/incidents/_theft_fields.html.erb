@@ -17,12 +17,19 @@
 		</div>
 
 		<div class="row">
-			<div class="col-md-4">
+			<div class="col-md-6">
 				<div class="form-group">
-			        <%= f.check_box :theft_security_video %>
-			        <%= f.label :theft_security_video, "Security Video?" %>
-				</div>
-			</div>
+					<ul class="list-group">
+						<li class="list-group-item">
+						Security Video?
+						    <div class="material-switch pull-right" style="padding-top: 10px;">
+				                <%= f.check_box :theft_security_video %>
+				                <label for="<%= form_tag_id(f.object_name, :theft_security_video) %>" class="label-primary"></label>
+				            </div>
+				        </li>
+			        </ul>
+	            </div>
+            </div>
 		</div>
 	</div>
 	

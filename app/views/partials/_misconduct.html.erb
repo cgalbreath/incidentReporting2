@@ -12,12 +12,19 @@
 			</div>
 
 			<div class="row">
-				<div class="col-sm-1">
-				</div>
-				<div class="col-sm-1">
-						<%= ff.label :misconduct_cps_notified, "CPS", :class => "control-label" %>
-				        <%= ff.check_box :misconduct_cps_notified, :class => "form-control" %>
-				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<ul class="list-group">
+							<li class="list-group-item">
+							Parent notified?
+							    <div class="material-switch pull-right" style="padding-top: 10px;">
+				        	        <%= ff.check_box :misconduct_cps_notified %>
+				            	    <label for="<%= form_tag_id(ff.object_name, :misconduct_cps_notified) %>" class="label-primary"></label>
+					            </div>
+					        </li>
+				        </ul>
+	        	    </div>
+           		</div>
 			</div>
 
 			<div id="misconduct_incident_detail_cps_info">

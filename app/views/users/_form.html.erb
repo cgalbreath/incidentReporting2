@@ -20,15 +20,18 @@
   </div>
 
   <div class="row">
-    <div class="col-sm-1">
-    </div>  
-    <div class="col-sm-1">
+    <div class="col-md-6">
       <div class="form-group">
-        <%= f.label :admin, :class => "control-label" %>
-        <%= f.check_box :admin, :class => "form-control" %>
-      </div>  
-    </div>
-    <div class="col-sm-4">
+        <ul class="list-group">
+          <li class="list-group-item">
+          Admin:
+            <div class="material-switch pull-right" style="padding-top: 10px;">
+              <%= f.check_box :admin %>
+              <label for="<%= form_tag_id(f.object_name, :admin) %>" class="label-primary"></label>
+            </div>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 

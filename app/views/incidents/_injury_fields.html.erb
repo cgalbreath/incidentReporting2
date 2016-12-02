@@ -30,11 +30,21 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-md-4">
-			    <%= f.check_box :injury_guardian_notified %>
-			    <%= f.label :injury_guardian_notified, "Parent notified" %>
-			</div>
+			<div class="col-md-6">
+				<div class="form-group">
+					<ul class="list-group">
+						<li class="list-group-item">
+						Parent notified?
+						    <div class="material-switch pull-right" style="padding-top: 10px;">
+				                <%= f.check_box :injury_guardian_notified %>
+				                <label for="<%= form_tag_id(f.object_name, :injury_guardian_notified) %>" class="label-primary"></label>
+				            </div>
+				        </li>
+			        </ul>
+	            </div>
+            </div>
 		</div>
+
 		<div id="<%= form_tag_id(f.object_name, :injury_guardian_info) %>">
 			<div class="row">
 				<div class="col-md-6">

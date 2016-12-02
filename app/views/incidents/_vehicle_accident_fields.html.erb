@@ -42,12 +42,20 @@
 		</div>
 
 		<div class="row">
-			<div class="col-md-6">
-				<div class="form-group" style="padding-top: 20px;padding-left: 30px;">
-				    <%= f.check_box :veh_alternative_transport %>
-				    <%= f.label :veh_alternative_transport, "Alternative Transport?" %>
-				</div>
-			</div>
+			<div class="col-md-6" style="margin-top: 22px;">
+				<div class="form-group">
+					<ul class="list-group">
+						<li class="list-group-item">
+						Alternative Transport?
+						    <div class="material-switch pull-right" style="padding-top: 10px;">
+				                <%= f.check_box :veh_alternative_transport %>
+				                <label for="<%= form_tag_id(f.object_name, :veh_alternative_transport) %>" class="label-primary"></label>
+				            </div>
+				        </li>
+			        </ul>
+	            </div>
+            </div>
+
 			<div id="<%= form_tag_id(f.object_name, :alternative_transport_info) %>">
 				<div class="col-md-6">
 					<div class="form-group">
