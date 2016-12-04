@@ -1,4 +1,4 @@
-<ul class="nav navbar-nav hidden-md hidden-lg">
+<ul class="nav navbar-nav hidden-lg">
   <li class="dropdown">
     <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="margin-left: 20px">General <b class="caret"></b></a>
     <ul class="dropdown-menu">
@@ -15,7 +15,7 @@
   </li>
 </ul>
 <% if current_user.try(:admin?) %>
-  <ul class="nav navbar-nav hidden-md hidden-lg">
+  <ul class="nav navbar-nav hidden-lg">
     <li class="dropdown">
       <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="margin-left: 20px">Admin <b class="caret"></b></a>
       <ul class="dropdown-menu">
@@ -34,9 +34,9 @@
         <li>
           <%= link_to "Bus List", buses_path, {:style => 'margin-left: 20px'} %>
         </li>
-        <li>
+<!--         <li>
           <%= link_to "Incident Types", incident_types_path, {:style => 'margin-left: 20px'} %>
-        </li>
+        </li> -->
         <li>
           <%= link_to "Severity Levels", severity_levels_path, {:style => 'margin-left: 20px'} %>
         </li>

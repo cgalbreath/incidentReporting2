@@ -29,9 +29,9 @@
         <li>
             <%= active_link_to "Bus List", buses_path, :wrap_tag => :li if current_user.try(:admin?) %>
         </li>
-        <li>
+<!--         <li>
             <%= active_link_to "Incident Types", incident_types_path, :wrap_tag => :li if current_user.try(:admin?) %>
-        </li>
+        </li> -->
         <li>
             <%= active_link_to "Severity Levels", severity_levels_path, :wrap_tag => :li if current_user.try(:admin?) %>
         </li>
