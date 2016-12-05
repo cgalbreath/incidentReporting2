@@ -56,6 +56,10 @@
   color: #ffffff;
 }
 
+.navbar-fixed-top .navbar-collapse {
+  max-height: 440px;
+}
+
 .material-switch > input[type="checkbox"] {
     display: none;   
 }
